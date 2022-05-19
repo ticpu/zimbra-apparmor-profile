@@ -1,7 +1,7 @@
-# Last Modified: Tue May 17 14:44:07 2022
+# Last Modified: Tue May 17 23:04:13 2022
 #include <tunables/global>
 
-/opt/zimbra/bin/zmfreshclamctl flags=(complain) {
+/opt/zimbra/bin/zmfreshclamctl {
   #include <abstractions/base>
   #include <abstractions/bash>
   #include <abstractions/consoles>
@@ -13,9 +13,8 @@
 
   /lib/x86_64-linux-gnu/ld-*.so mr,
   /opt/zimbra/bin/zmfreshclamctl Px,
-  /opt/zimbra/bin/zmlocalconfig Px,
   /opt/zimbra/common/bin/freshclam Px,
-  /opt/zimbra/libexec/configrewrite Ux,
+  /opt/zimbra/libexec/configrewrite Px,
   owner /opt/zimbra/log/* r,
   owner /opt/zimbra/log/* w,
 

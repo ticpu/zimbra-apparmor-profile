@@ -1,7 +1,7 @@
-# Last Modified: Tue May 17 14:43:06 2022
+# Last Modified: Tue May 17 23:02:59 2022
 #include <tunables/global>
 
-/opt/zimbra/bin/zmapachectl flags=(complain) {
+/opt/zimbra/bin/zmapachectl {
   #include <abstractions/base>
   #include <abstractions/bash>
   #include <abstractions/consoles>
@@ -9,6 +9,7 @@
   #include <abstractions/zimbra-ptrace>
 
   /lib/x86_64-linux-gnu/ld-*.so mr,
+  /opt/zimbra/bin/zmapachectl Px,
   /opt/zimbra/common/bin/apachectl mrix,
   /opt/zimbra/common/bin/envvars r,
   /opt/zimbra/common/bin/httpd Px,

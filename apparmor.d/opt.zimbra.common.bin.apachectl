@@ -1,0 +1,16 @@
+# Last Modified: Wed May 18 00:33:58 2022
+#include <tunables/global>
+
+/opt/zimbra/common/bin/apachectl flags=(complain) {
+  #include <abstractions/base>
+  #include <abstractions/bash>
+  #include <abstractions/zimbra-bash>
+  #include <abstractions/zimbra-ptrace>
+
+  /bin/dash r,
+  /lib/x86_64-linux-gnu/ld-*.so mr,
+  /opt/zimbra/common/bin/apachectl r,
+  /opt/zimbra/common/bin/envvars r,
+  /opt/zimbra/common/bin/httpd px,
+
+}

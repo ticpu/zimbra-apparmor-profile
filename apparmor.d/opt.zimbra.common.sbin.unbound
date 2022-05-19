@@ -1,4 +1,4 @@
-# Last Modified: Tue Apr  5 20:13:44 2022
+# Last Modified: Thu May 19 17:45:25 2022
 #include <tunables/global>
 
 /opt/zimbra/common/sbin/unbound {
@@ -12,6 +12,8 @@
   capability setgid,
   capability setuid,
   capability sys_chroot,
+
+  signal receive set=term peer=/opt/zimbra/bin/zmdnscachectl,
 
   /lib/x86_64-linux-gnu/ld-*.so mr,
   /opt/zimbra/common/lib/lib*so* mr,

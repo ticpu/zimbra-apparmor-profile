@@ -1,4 +1,4 @@
-# Last Modified: Tue May 17 13:29:10 2022
+# Last Modified: Thu May 19 17:05:24 2022
 #include <tunables/global>
 
 /opt/zimbra/bin/zmmailboxdctl flags=(complain) {
@@ -10,6 +10,8 @@
   #include <abstractions/zimbra-ptrace>
 
   /lib/x86_64-linux-gnu/ld-*.so mr,
+  /opt/zimbra/libexec/zmhostname Px,
+  /opt/zimbra/libexec/zmlocalconfig Px,
   /opt/zimbra/libexec/zmmailboxdmgr Px,
   /opt/zimbra/libexec/zmupdatedownload Px,
   owner /opt/zimbra/conf/* r,

@@ -1,13 +1,20 @@
-# Last Modified: Tue May 17 15:02:25 2022
+# Last Modified: Tue May 17 23:01:36 2022
 #include <tunables/global>
 
 /opt/zimbra/libexec/zmlogger flags=(complain) {
   #include <abstractions/base>
+  #include <abstractions/nameservice>
   #include <abstractions/perl>
   #include <abstractions/zimbra-bash>
   #include <abstractions/zimbra-ptrace>
 
+  signal receive set=kill peer=/opt/zimbra/bin/zmlogswatchctl,
+  signal receive set=term peer=/opt/zimbra/bin/zmlogswatchctl,
+
   /lib/x86_64-linux-gnu/ld-*.so mr,
+  /opt/zimbra/common/lib/lib*so* mr,
   /opt/zimbra/libexec/zmlogger r,
+  owner /opt/zimbra/log/* w,
+  owner /opt/zimbra/logger/** rwk,
 
 }

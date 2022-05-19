@@ -1,4 +1,4 @@
-# Last Modified: Tue May 17 14:45:30 2022
+# Last Modified: Wed May 18 01:01:42 2022
 #include <tunables/global>
 
 /opt/zimbra/common/libexec/slapd flags=(complain) {
@@ -6,6 +6,14 @@
 
   /lib/x86_64-linux-gnu/ld-*.so mr,
   /opt/zimbra/common/lib/lib*so* mr,
+  /opt/zimbra/common/lib/sasl2/ r,
+  /opt/zimbra/common/lib/sasl2/* r,
+  /opt/zimbra/common/lib/sasl2/*.so.* mr,
+  /opt/zimbra/common/libexec/openldap/* r,
+  /opt/zimbra/common/libexec/openldap/*.so.* mr,
   /opt/zimbra/common/libexec/slapd mr,
+  owner /opt/zimbra/backup/tmp/** w,
+  owner /opt/zimbra/data/ldap/** rwk,
+  owner /opt/zimbra/data/ldap/config/** r,
 
 }

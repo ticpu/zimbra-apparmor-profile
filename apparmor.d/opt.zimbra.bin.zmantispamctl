@@ -1,7 +1,7 @@
 # Last Modified: Tue May 17 14:19:54 2022
 #include <tunables/global>
 
-/opt/zimbra/bin/zmantispamctl flags=(complain) {
+/opt/zimbra/bin/zmantispamctl {
   #include <abstractions/base>
   #include <abstractions/bash>
   #include <abstractions/consoles>

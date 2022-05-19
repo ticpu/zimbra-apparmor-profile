@@ -1,7 +1,7 @@
-# Last Modified: Thu May 19 17:46:35 2022
+# Last Modified: Thu May 19 17:50:06 2022
 #include <tunables/global>
 
-/opt/zimbra/bin/zmdnscachectl {
+/opt/zimbra/libexec/configrewrite flags=(complain) {
   #include <abstractions/base>
   #include <abstractions/bash>
   #include <abstractions/consoles>
@@ -9,11 +9,7 @@
   #include <abstractions/zimbra-bash>
   #include <abstractions/zimbra-ptrace>
 
-  signal send set=term peer=/opt/zimbra/common/sbin/unbound,
-
   /lib/x86_64-linux-gnu/ld-*.so mr,
-  /opt/zimbra/bin/zmdnscachectl Px,
-  /opt/zimbra/common/sbin/unbound-checkconf Px,
-  /opt/zimbra/libexec/configrewrite Px,
+  /opt/zimbra/libexec/configrewrite r,
 
 }

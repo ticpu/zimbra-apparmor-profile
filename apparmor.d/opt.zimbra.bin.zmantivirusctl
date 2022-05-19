@@ -1,7 +1,7 @@
 # Last Modified: Tue May 17 00:13:08 2022
 #include <tunables/global>
 
-/opt/zimbra/bin/zmantivirusctl flags=(complain) {
+/opt/zimbra/bin/zmantivirusctl {
   #include <abstractions/base>
   #include <abstractions/bash>
   #include <abstractions/consoles>

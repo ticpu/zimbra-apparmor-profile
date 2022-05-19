@@ -1,4 +1,4 @@
-# Last Modified: Mon May 16 22:03:59 2022
+# Last Modified: Wed May 18 01:01:42 2022
 #include <tunables/global>
 
 /opt/zimbra/bin/zmlocalconfig {
@@ -9,6 +9,8 @@
   #include <abstractions/zimbra-ptrace>
 
   /lib/x86_64-linux-gnu/ld-*.so mr,
+  /opt/zimbra/common/lib/lib*so* r,
   /opt/zimbra/zmstat/zmstat.out w,
+  owner /opt/zimbra/log/zmlogswatch.out w,
 
 }

@@ -12,7 +12,7 @@
   /opt/zimbra/bin/postfix Px,
   /opt/zimbra/bin/zmlocalconfig Px,
   /opt/zimbra/bin/zmsaslauthdctl Px,
-  /opt/zimbra/libexec/configrewrite Ux,
+  /opt/zimbra/libexec/configrewrite Px,
   owner /opt/zimbra/conf/* r,
 
 }

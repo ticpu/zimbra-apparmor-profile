@@ -1,7 +1,7 @@
-# Last Modified: Tue May 17 14:43:31 2022
+# Last Modified: Thu May 19 17:53:59 2022
 #include <tunables/global>
 
-/opt/zimbra/bin/zmclamdctl flags=(complain) {
+/opt/zimbra/bin/zmclamdctl {
   #include <abstractions/base>
   #include <abstractions/bash>
   #include <abstractions/consoles>
@@ -15,10 +15,11 @@
   /lib/x86_64-linux-gnu/ld-*.so mr,
   /opt/zimbra/bin/zmamavisdctl Px,
   /opt/zimbra/bin/zmclamdctl Px,
-  /opt/zimbra/bin/zmlocalconfig Px,
   /opt/zimbra/common/sbin/clamd Px,
-  /opt/zimbra/libexec/configrewrite Ux,
+  /opt/zimbra/libexec/configrewrite Px,
   /proc/stat r,
+  owner /opt/zimbra/data/clamav/** r,
+  owner /opt/zimbra/data/clamav/** w,
   owner /opt/zimbra/log/* r,
   owner /opt/zimbra/log/* wk,
 

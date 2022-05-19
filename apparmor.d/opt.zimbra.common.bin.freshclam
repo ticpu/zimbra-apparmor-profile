@@ -1,7 +1,7 @@
 # Last Modified: Tue May 17 14:44:07 2022
 #include <tunables/global>
 
-/opt/zimbra/common/bin/freshclam flags=(complain) {
+/opt/zimbra/common/bin/freshclam {
   #include <abstractions/base>
   #include <abstractions/nameservice>
 

@@ -1,11 +1,13 @@
-# Last Modified: Tue May 17 08:57:08 2022
+# Last Modified: Wed May 18 09:23:17 2022
 #include <tunables/global>
 
 /opt/zimbra/libexec/zmconfigd flags=(complain) {
   #include <abstractions/base>
+  #include <abstractions/zimbra-bash>
+  #include <abstractions/zimbra-ptrace>
 
   /lib/x86_64-linux-gnu/ld-*.so mr,
+  /opt/zimbra/bin/zmpython Px,
   /opt/zimbra/libexec/zmconfigd r,
-  /usr/bin/env ix,
 
 }

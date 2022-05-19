@@ -1,7 +1,7 @@
-# Last Modified: Tue May 17 14:42:45 2022
+# Last Modified: Wed May 18 22:32:10 2022
 #include <tunables/global>
 
-/opt/zimbra/bin/zmamavisdctl flags=(complain) {
+/opt/zimbra/bin/zmamavisdctl {
   #include <abstractions/base>
   #include <abstractions/bash>
   #include <abstractions/consoles>
@@ -15,9 +15,8 @@
 
   /lib/x86_64-linux-gnu/ld-*.so mr,
   /opt/zimbra/bin/zmamavisdctl Px,
-  /opt/zimbra/bin/zmlocalconfig Px,
   /opt/zimbra/common/sbin/amavisd Px,
-  /opt/zimbra/libexec/configrewrite Ux,
+  /opt/zimbra/libexec/configrewrite Px,
   /opt/zimbra/libexec/zmaltermimeconfig Px,
   /opt/zimbra/libexec/zmaltermimeconfig r,
   owner /opt/zimbra/data/amavisd/tmp/ r,

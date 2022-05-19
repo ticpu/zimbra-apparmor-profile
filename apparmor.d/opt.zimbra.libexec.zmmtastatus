@@ -1,7 +1,7 @@
 # Last Modified: Tue May 17 13:32:17 2022
 #include <tunables/global>
 
-/opt/zimbra/libexec/zmmtastatus flags=(complain) {
+/opt/zimbra/libexec/zmmtastatus {
   #include <abstractions/base>
   #include <abstractions/zimbra-bash>
 

@@ -1,7 +1,7 @@
-# Last Modified: Tue May 17 00:13:17 2022
+# Last Modified: Wed May 18 00:32:56 2022
 #include <tunables/global>
 
-/opt/zimbra/bin/zmconvertctl flags=(complain) {
+/opt/zimbra/bin/zmconvertctl {
   #include <abstractions/base>
   #include <abstractions/bash>
   #include <abstractions/consoles>
@@ -10,6 +10,9 @@
   #include <abstractions/zimbra-ptrace>
 
   /lib/x86_64-linux-gnu/ld-*.so mr,
-  owner /opt/zimbra/log/convertd.pid r,
+  /opt/zimbra/bin/zmconvertctl px,
+  /opt/zimbra/common/bin/apachectl px,
+  /opt/zimbra/convertd/convert px,
+  owner /opt/zimbra/log/convertd.pid rw,
 
 }

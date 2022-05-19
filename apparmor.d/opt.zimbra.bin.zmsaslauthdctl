@@ -1,4 +1,4 @@
-# Last Modified: Tue May 17 14:42:20 2022
+# Last Modified: Tue May 17 23:02:59 2022
 #include <tunables/global>
 
 /opt/zimbra/bin/zmsaslauthdctl flags=(complain) {
@@ -14,7 +14,7 @@
   /lib/x86_64-linux-gnu/ld-*.so mr,
   /opt/zimbra/bin/zmsaslauthdctl Px,
   /opt/zimbra/common/sbin/saslauthd Px,
-  /opt/zimbra/libexec/configrewrite Ux,
+  /opt/zimbra/libexec/configrewrite Px,
   /proc/*/* r,
   owner /opt/zimbra/data/sasl2/state/saslauthd.pid r,
 

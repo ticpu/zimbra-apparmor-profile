@@ -1,4 +1,4 @@
-# Last Modified: Tue May 17 00:13:23 2022
+# Last Modified: Tue May 17 22:54:27 2022
 #include <tunables/global>
 
 /opt/zimbra/bin/zmloggerctl flags=(complain) {
@@ -9,6 +9,5 @@
   #include <abstractions/zimbra-ptrace>
 
   /lib/x86_64-linux-gnu/ld-*.so mr,
-  /opt/zimbra/bin/zmlogswatchctl Px,
 
 }

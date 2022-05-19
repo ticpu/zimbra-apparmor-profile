@@ -8,7 +8,7 @@
   #include <abstractions/zimbra-bash>
 
   /lib/x86_64-linux-gnu/ld-*.so mr,
-  /opt/zimbra/libexec/configrewrite Ux,
+  /opt/zimbra/libexec/configrewrite Px,
   /opt/zimbra/libexec/zmmtainit Ux,
   /opt/zimbra/libexec/zmmtastatus Px,
 

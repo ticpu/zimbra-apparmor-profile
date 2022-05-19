@@ -1,4 +1,4 @@
-# Last Modified: Tue May 17 14:49:52 2022
+# Last Modified: Wed May 18 00:07:31 2022
 #include <tunables/global>
 
 /opt/zimbra/libexec/zmstat-fd flags=(complain) {
@@ -19,6 +19,7 @@
   /opt/zimbra/bin/zmlocalconfig Px,
   /opt/zimbra/libexec/zmstat-fd r,
   /opt/zimbra/zmstat/* rw,
+  /opt/zimbra/zmstat/** w,
   /tmp/* rwk,
   owner /opt/zimbra/log/* r,
   owner /opt/zimbra/zmstat/pid/* rw,

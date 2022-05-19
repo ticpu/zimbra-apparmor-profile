@@ -1,4 +1,4 @@
-# Last Modified: Tue May 17 14:42:20 2022
+# Last Modified: Tue May 17 23:01:36 2022
 #include <tunables/global>
 
 /opt/zimbra/bin/zmlogswatchctl flags=(complain) {
@@ -8,7 +8,15 @@
   #include <abstractions/zimbra-bash>
   #include <abstractions/zimbra-ptrace>
 
+  signal send set=kill peer=/opt/zimbra/common/bin/swatchdog,
+  signal send set=kill peer=/opt/zimbra/libexec/zmlogger,
+  signal send set=term peer=/opt/zimbra/libexec/zmlogger,
+
   /lib/x86_64-linux-gnu/ld-*.so mr,
+  /opt/zimbra/bin/zmhostname Px,
+  /opt/zimbra/bin/zmprov Px,
+  owner /opt/zimbra/conf/logswatchrc r,
   owner /opt/zimbra/log/* r,
+  owner /opt/zimbra/log/* w,
 
 }

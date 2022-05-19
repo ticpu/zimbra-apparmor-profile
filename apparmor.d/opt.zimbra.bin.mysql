@@ -1,0 +1,19 @@
+# Last Modified: Wed May 18 14:52:25 2022
+#include <tunables/global>
+
+/opt/zimbra/bin/mysql {
+  #include <abstractions/base>
+  #include <abstractions/bash>
+  #include <abstractions/consoles>
+  #include <abstractions/nameservice>
+  #include <abstractions/zimbra-bash>
+
+  /lib/x86_64-linux-gnu/ld-*.so mr,
+  /opt/zimbra/common/bin/mysql mrix,
+  /opt/zimbra/common/lib/mysql/* mr,
+  /opt/zimbra/common/share/mysql/** r,
+  /opt/zimbra/conf/my.cnf r,
+  owner /opt/zimbra/.mysql_history.TMP w,
+  owner /opt/zimbra/data/tmp/mysql/mysql.sock rw,
+
+}

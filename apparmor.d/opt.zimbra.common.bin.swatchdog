@@ -1,4 +1,4 @@
-# Last Modified: Tue May 17 14:45:17 2022
+# Last Modified: Tue May 17 23:01:36 2022
 #include <tunables/global>
 
 /opt/zimbra/common/bin/swatchdog {
@@ -7,7 +7,15 @@
   #include <abstractions/zimbra-bash>
   #include <abstractions/zimbra-ptrace>
 
+  signal receive set=kill peer=/opt/zimbra/bin/zmlogswatchctl,
+
+  /etc/timezone r,
   /lib/x86_64-linux-gnu/ld-*.so mr,
   /opt/zimbra/common/bin/swatchdog r,
+  /opt/zimbra/libexec/zmlogger Px,
+  /var/log/zimbra-stats.log r,
+  owner /opt/zimbra/conf/logswatchrc r,
+  owner /opt/zimbra/log/logswatch.pid w,
+  owner /opt/zimbra/log/zmlogswatch.out w,
 
 }

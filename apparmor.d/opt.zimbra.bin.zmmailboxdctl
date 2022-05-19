@@ -1,4 +1,3 @@
-# Last Modified: Thu May 19 17:05:24 2022
 #include <tunables/global>
 
 /opt/zimbra/bin/zmmailboxdctl flags=(complain) {

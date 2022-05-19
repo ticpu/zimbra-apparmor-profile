@@ -1,4 +1,3 @@
-# Last Modified: Tue May 17 23:04:13 2022
 #include <tunables/global>
 
 /opt/zimbra/bin/zmfreshclamctl {

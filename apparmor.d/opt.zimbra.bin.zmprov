@@ -1,4 +1,3 @@
-# Last Modified: Tue May 17 11:38:54 2022
 #include <tunables/global>
 
 /opt/zimbra/bin/zmprov flags=(complain) {

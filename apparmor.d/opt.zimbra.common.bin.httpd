@@ -1,4 +1,3 @@
-# Last Modified: Wed May 18 00:35:07 2022
 #include <tunables/global>
 
 /opt/zimbra/common/bin/httpd flags=(complain) {

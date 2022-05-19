@@ -1,4 +1,3 @@
-# Last Modified: Tue May 17 00:13:04 2022
 #include <tunables/global>
 
 /opt/zimbra/bin/postfix flags=(complain) {

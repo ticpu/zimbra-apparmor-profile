@@ -1,4 +1,3 @@
-# Last Modified: Tue Apr  5 20:17:22 2022
 #include <tunables/global>
 
 /opt/zimbra/common/sbin/opendkim {

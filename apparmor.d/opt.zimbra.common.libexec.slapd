@@ -1,10 +1,18 @@
-# Last Modified: Wed May 18 01:01:42 2022
 #include <tunables/global>
 
 /opt/zimbra/common/libexec/slapd flags=(complain) {
   #include <abstractions/base>
+  #include <abstractions/nameservice>
+
+  capability dac_override,
+  capability net_bind_service,
+  capability setgid,
+
+  signal receive set=term peer=/opt/zimbra/bin/ldap,
 
   /lib/x86_64-linux-gnu/ld-*.so mr,
+  /opt/zimbra/.ldaprc r,
+  /opt/zimbra/common/etc/ssl/* r,
   /opt/zimbra/common/lib/lib*so* mr,
   /opt/zimbra/common/lib/sasl2/ r,
   /opt/zimbra/common/lib/sasl2/* r,
@@ -12,7 +20,13 @@
   /opt/zimbra/common/libexec/openldap/* r,
   /opt/zimbra/common/libexec/openldap/*.so.* mr,
   /opt/zimbra/common/libexec/slapd mr,
+  /opt/zimbra/data/ldap/** rw,
   owner /opt/zimbra/backup/tmp/** w,
+  owner /opt/zimbra/common/etc/openldap/* r,
+  owner /opt/zimbra/conf/ r,
+  owner /opt/zimbra/conf/* r,
+  owner /opt/zimbra/conf/ca/ r,
+  owner /opt/zimbra/conf/ca/* r,
   owner /opt/zimbra/data/ldap/** rwk,
   owner /opt/zimbra/data/ldap/config/** r,
 

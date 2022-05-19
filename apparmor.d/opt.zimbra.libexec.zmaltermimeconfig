@@ -1,4 +1,3 @@
-# Last Modified: Tue May 17 14:31:40 2022
 #include <tunables/global>
 
 /opt/zimbra/libexec/zmaltermimeconfig flags=(complain) {

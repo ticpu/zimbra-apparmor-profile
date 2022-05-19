@@ -1,11 +1,9 @@
-# Last Modified: Tue May 17 14:33:36 2022
 #include <tunables/global>
 
 /opt/zimbra/common/sbin/amavisd flags=(complain) {
   #include <abstractions/base>
   #include <abstractions/nameservice>
   #include <abstractions/perl>
-  #include <abstractions/zimbra-bash>
 
   signal receive set=term peer=/opt/zimbra/bin/zmamavisdctl,
 
@@ -27,6 +25,7 @@
   owner /opt/zimbra/data/clamav/clamav.sock rw,
   owner /opt/zimbra/data/spamassassin/** r,
   owner /opt/zimbra/data/spamassassin/localrules/* r,
+  owner /opt/zimbra/data/tmp/* rw,
   owner /opt/zimbra/log/amavisd.pid w,
 
 }

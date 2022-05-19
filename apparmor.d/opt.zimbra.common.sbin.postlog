@@ -1,0 +1,14 @@
+# Last Modified: Tue May 17 13:32:17 2022
+#include <tunables/global>
+
+/opt/zimbra/common/sbin/postlog flags=(complain) {
+  #include <abstractions/base>
+  #include <abstractions/nameservice>
+
+  /lib/x86_64-linux-gnu/ld-*.so mr,
+  /opt/zimbra/common/lib/lib*so* mr,
+  /opt/zimbra/common/sbin/postlog mr,
+  /opt/zimbra/data/tmp/* w,
+  owner /opt/zimbra/common/conf/* r,
+
+}

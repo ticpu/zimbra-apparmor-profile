@@ -1,0 +1,18 @@
+# Last Modified: Tue May 17 14:43:31 2022
+#include <tunables/global>
+
+/opt/zimbra/common/sbin/amavis-services flags=(complain) {
+  #include <abstractions/base>
+  #include <abstractions/nameservice>
+  #include <abstractions/perl>
+  #include <abstractions/zimbra-bash>
+  #include <abstractions/zimbra-ptrace>
+
+  signal receive set=kill peer=/opt/zimbra/common/sbin/amavis-mc,
+  signal receive set=term peer=/opt/zimbra/common/sbin/amavis-mc,
+
+  /lib/x86_64-linux-gnu/ld-*.so mr,
+  /opt/zimbra/common/lib/lib*so* mr,
+  /opt/zimbra/common/sbin/amavis-services r,
+
+}

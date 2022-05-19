@@ -1,0 +1,17 @@
+# Last Modified: Tue May 17 13:29:10 2022
+#include <tunables/global>
+
+/opt/zimbra/bin/zmmailboxdctl flags=(complain) {
+  #include <abstractions/base>
+  #include <abstractions/bash>
+  #include <abstractions/consoles>
+  #include <abstractions/nameservice>
+  #include <abstractions/zimbra-bash>
+  #include <abstractions/zimbra-ptrace>
+
+  /lib/x86_64-linux-gnu/ld-*.so mr,
+  /opt/zimbra/libexec/zmmailboxdmgr Px,
+  /opt/zimbra/libexec/zmupdatedownload Px,
+  owner /opt/zimbra/conf/* r,
+
+}

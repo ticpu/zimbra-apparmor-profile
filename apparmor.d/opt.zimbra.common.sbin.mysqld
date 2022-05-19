@@ -1,0 +1,29 @@
+# Last Modified: Mon Apr 18 11:02:14 2022
+#include <tunables/global>
+
+/opt/zimbra/common/sbin/mysqld {
+  #include <abstractions/base>
+  #include <abstractions/nameservice>
+
+  signal receive set=term peer=/opt/zimbra/common/sbin/saslauthd,
+
+  /lib/x86_64-linux-gnu/ld-*.so mr,
+  /opt/zimbra/common/lib/lib*so* mr,
+  /opt/zimbra/common/lib/mysql/libcrypto.so.* mr,
+  /opt/zimbra/common/lib/mysql/libssl.so.* mr,
+  /opt/zimbra/common/sbin/mysqld mr,
+  /opt/zimbra/common/share/mysql/** r,
+  owner /opt/zimbra/backup/tmp/** w,
+  owner /opt/zimbra/conf/my.cnf r,
+  owner /opt/zimbra/data/tmp/ r,
+  owner /opt/zimbra/data/tmp/* rwk,
+  owner /opt/zimbra/data/tmp/mysql/mysql.sock w,
+  owner /opt/zimbra/db/data/ r,
+  owner /opt/zimbra/db/data/** rwk,
+  owner /opt/zimbra/db/data/*.lower-test rw,
+  owner /opt/zimbra/db/data/mysql/* rwk,
+  owner /opt/zimbra/log/myslow.log w,
+  owner /opt/zimbra/log/mysql.pid w,
+  owner /opt/zimbra/log/mysql_error.log w,
+
+}

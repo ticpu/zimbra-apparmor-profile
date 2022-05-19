@@ -1,0 +1,19 @@
+# Last Modified: Tue May 17 14:19:54 2022
+#include <tunables/global>
+
+/opt/zimbra/bin/zmantispamctl flags=(complain) {
+  #include <abstractions/base>
+  #include <abstractions/bash>
+  #include <abstractions/consoles>
+  #include <abstractions/nameservice>
+  #include <abstractions/zimbra-bash>
+  #include <abstractions/zimbra-ptrace>
+
+  /lib/x86_64-linux-gnu/ld-*.so mr,
+  /opt/zimbra/bin/antispam-mysql.server mrix,
+  /opt/zimbra/bin/zmamavisdctl Px,
+  /opt/zimbra/bin/zmhostname Px,
+  /opt/zimbra/bin/zmlocalconfig Px,
+  /opt/zimbra/bin/zmprov Px,
+
+}

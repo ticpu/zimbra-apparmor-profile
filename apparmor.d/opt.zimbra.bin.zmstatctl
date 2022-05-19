@@ -1,0 +1,22 @@
+# Last Modified: Mon May 16 21:55:55 2022
+#include <tunables/global>
+
+/opt/zimbra/bin/zmstatctl {
+  #include <abstractions/base>
+  #include <abstractions/nameservice>
+  #include <abstractions/zimbra-bash>
+  #include <abstractions/zimbra-ptrace>
+
+  signal send set=term peer=unconfined,
+  signal send set=term peer=zimbra_stats,
+
+  /lib/x86_64-linux-gnu/ld-*.so mr,
+  /opt/zimbra/bin/zmlocalconfig Px,
+  /opt/zimbra/common/lib/perl5/** r,
+  /opt/zimbra/libexec/zmstat-* Px -> zimbra_stats,
+  owner /opt/zimbra/conf/* r,
+  owner /opt/zimbra/zmstat/* w,
+  owner /opt/zimbra/zmstat/pid/ r,
+  owner /opt/zimbra/zmstat/pid/* rw,
+
+}

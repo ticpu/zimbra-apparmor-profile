@@ -1,0 +1,15 @@
+# Last Modified: Tue May 17 11:38:54 2022
+#include <tunables/global>
+
+/opt/zimbra/bin/zmprov flags=(complain) {
+  #include <abstractions/base>
+  #include <abstractions/bash>
+  #include <abstractions/consoles>
+  #include <abstractions/zimbra-bash>
+  #include <abstractions/zimbra-ptrace>
+
+  /lib/x86_64-linux-gnu/ld-*.so mr,
+  /opt/zimbra/bin/zmjava Px,
+  /opt/zimbra/zmstat/zmstat.out w,
+
+}

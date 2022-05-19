@@ -1,0 +1,11 @@
+# Last Modified: Tue May 17 14:45:30 2022
+#include <tunables/global>
+
+/opt/zimbra/common/libexec/slapd flags=(complain) {
+  #include <abstractions/base>
+
+  /lib/x86_64-linux-gnu/ld-*.so mr,
+  /opt/zimbra/common/lib/lib*so* mr,
+  /opt/zimbra/common/libexec/slapd mr,
+
+}

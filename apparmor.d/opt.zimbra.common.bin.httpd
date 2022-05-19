@@ -1,0 +1,50 @@
+# Last Modified: Tue May 17 13:30:37 2022
+#include <tunables/global>
+
+/opt/zimbra/common/bin/httpd {
+  #include <abstractions/base>
+  #include <abstractions/nameservice>
+
+  signal send set=term peer=/opt/zimbra/common/bin/rotatelogs,
+  signal send set=term peer=unconfined,
+
+  / r,
+  /lib/x86_64-linux-gnu/ld-*.so mr,
+  /opt/zimbra/common/bin/httpd mr,
+  /opt/zimbra/common/bin/rotatelogs Px,
+  /opt/zimbra/common/lib/apache2/modules/* mr,
+  /opt/zimbra/common/lib/aspell-*/ r,
+  /opt/zimbra/common/lib/aspell-*/** r,
+  /opt/zimbra/common/lib/lib*so* mr,
+  /opt/zimbra/convertd/lib/lib*so* mr,
+  /opt/zimbra/data/httpd/** r,
+  /opt/zimbra/keyview-*/** r,
+  /opt/zimbra/keyview-*/*/bin/*.so mr,
+  /opt/zimbra/keyview-*/*/bin/mwxsr.so mr,
+  /opt/zimbra/keyview-*/ExportSDK/** r,
+  /opt/zimbra/keyview-*/ExportSDK/bin/*.so mr,
+  /opt/zimbra/keyview-*/ExportSDK/bin/mwxsr.so mr,
+  /proc/filesystems r,
+  /usr/bin/find mrix,
+  owner /opt/zimbra/conf/httpd.conf r,
+  owner /opt/zimbra/conf/php.ini r,
+  owner /opt/zimbra/convertd/conf/httpd.conf r,
+  owner /opt/zimbra/convertd/convert/convert/ r,
+  owner /opt/zimbra/convertd/convert/convert/** r,
+  owner /opt/zimbra/data/tmp/* w,
+  owner /opt/zimbra/data/tmp/convert/ r,
+  owner /opt/zimbra/data/tmp/convert/* rw,
+  owner /opt/zimbra/log/convertd.pid r,
+  owner /opt/zimbra/log/convertd.pid w,
+  owner /opt/zimbra/log/convertd.pid.* rw,
+  owner /opt/zimbra/log/httpd.pid rw,
+  owner /opt/zimbra/log/httpd.pid.* rw,
+  owner /tmp/php* rw,
+
+
+  ^DEFAULT_URI {
+  }
+
+  ^HANDLING_UNTRUSTED_INPUT {
+  }
+}

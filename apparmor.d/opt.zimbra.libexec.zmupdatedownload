@@ -1,0 +1,20 @@
+# Last Modified: Tue May 17 13:32:42 2022
+#include <tunables/global>
+
+/opt/zimbra/libexec/zmupdatedownload flags=(complain) {
+  #include <abstractions/base>
+  #include <abstractions/bash>
+  #include <abstractions/consoles>
+  #include <abstractions/nameservice>
+  #include <abstractions/zimbra-bash>
+  #include <abstractions/zimbra-ptrace>
+
+  /lib/x86_64-linux-gnu/ld-*.so mr,
+  /opt/zimbra/jetty_base/webapps/zimbra/downloads/ r,
+  /opt/zimbra/libexec/zmupdatedownload r,
+  /proc/filesystems r,
+  owner /opt/zimbra/jetty_base/webapps/zimbra/downloads/** r,
+  owner /opt/zimbra/jetty_base/webapps/zimbra/downloads/** w,
+  owner /opt/zimbra/jetty_base/webapps/zimbraAdmin/WEB-INF/classes/messages/* rw,
+
+}

@@ -1,0 +1,22 @@
+# Last Modified: Tue May 17 14:44:07 2022
+#include <tunables/global>
+
+/opt/zimbra/bin/zmfreshclamctl flags=(complain) {
+  #include <abstractions/base>
+  #include <abstractions/bash>
+  #include <abstractions/consoles>
+  #include <abstractions/nameservice>
+  #include <abstractions/zimbra-bash>
+  #include <abstractions/zimbra-ptrace>
+
+  signal send set=kill peer=/opt/zimbra/common/bin/freshclam,
+
+  /lib/x86_64-linux-gnu/ld-*.so mr,
+  /opt/zimbra/bin/zmfreshclamctl Px,
+  /opt/zimbra/bin/zmlocalconfig Px,
+  /opt/zimbra/common/bin/freshclam Px,
+  /opt/zimbra/libexec/configrewrite Ux,
+  owner /opt/zimbra/log/* r,
+  owner /opt/zimbra/log/* w,
+
+}

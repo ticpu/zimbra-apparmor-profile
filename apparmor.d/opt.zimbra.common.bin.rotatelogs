@@ -1,0 +1,16 @@
+# Last Modified: Tue Apr  5 20:15:12 2022
+#include <tunables/global>
+
+/opt/zimbra/common/bin/rotatelogs {
+  #include <abstractions/base>
+
+  signal receive set=term peer=/opt/zimbra/common/bin/httpd,
+
+  /lib/x86_64-linux-gnu/ld-*.so mr,
+  /opt/zimbra/common/bin/rotatelogs mr,
+  /opt/zimbra/common/lib/lib*so* mr,
+  owner /opt/zimbra/data/tmp/zmcontrol.out.* w,
+  owner /opt/zimbra/log/convertd.log.* w,
+  owner /opt/zimbra/log/httpd_*.log* w,
+
+}

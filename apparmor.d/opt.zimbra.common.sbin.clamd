@@ -1,0 +1,21 @@
+# Last Modified: Tue May 17 14:44:07 2022
+#include <tunables/global>
+
+/opt/zimbra/common/sbin/clamd flags=(complain) {
+  #include <abstractions/base>
+  #include <abstractions/nameservice>
+
+  signal receive set=term peer=/opt/zimbra/bin/zmclamdctl,
+
+  /lib/x86_64-linux-gnu/ld-*.so mr,
+  /opt/zimbra/common/lib/lib*so* mr,
+  /opt/zimbra/common/sbin/clamd mr,
+  owner /opt/zimbra/conf/clamd.conf r,
+  owner /opt/zimbra/data/amavisd/tmp/** r,
+  owner /opt/zimbra/data/clamav/** r,
+  owner /opt/zimbra/data/clamav/** w,
+  owner /opt/zimbra/log/clamd.log wk,
+  owner /opt/zimbra/log/clamd.pid w,
+  owner /tmp/** rw,
+
+}

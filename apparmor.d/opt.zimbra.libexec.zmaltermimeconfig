@@ -1,0 +1,17 @@
+# Last Modified: Tue May 17 14:31:40 2022
+#include <tunables/global>
+
+/opt/zimbra/libexec/zmaltermimeconfig flags=(complain) {
+  #include <abstractions/base>
+  #include <abstractions/consoles>
+  #include <abstractions/nameservice>
+  #include <abstractions/perl>
+  #include <abstractions/zimbra-bash>
+  #include <abstractions/zimbra-ptrace>
+
+  /lib/x86_64-linux-gnu/ld-*.so mr,
+  /opt/zimbra/bin/zmlocalconfig Px,
+  /opt/zimbra/libexec/zmaltermimeconfig r,
+  /run/nslcd/socket rw,
+
+}

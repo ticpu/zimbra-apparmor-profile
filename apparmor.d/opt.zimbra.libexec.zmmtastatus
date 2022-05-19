@@ -1,0 +1,13 @@
+# Last Modified: Tue May 17 13:32:17 2022
+#include <tunables/global>
+
+/opt/zimbra/libexec/zmmtastatus flags=(complain) {
+  #include <abstractions/base>
+  #include <abstractions/zimbra-bash>
+
+  /lib/x86_64-linux-gnu/ld-*.so mr,
+  /opt/zimbra/common/sbin/postfix Px,
+  /opt/zimbra/data/tmp/* w,
+  /opt/zimbra/libexec/zmmtastatus r,
+
+}

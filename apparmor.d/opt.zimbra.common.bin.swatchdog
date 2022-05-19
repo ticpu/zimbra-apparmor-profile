@@ -1,0 +1,13 @@
+# Last Modified: Tue May 17 14:45:17 2022
+#include <tunables/global>
+
+/opt/zimbra/common/bin/swatchdog {
+  #include <abstractions/base>
+  #include <abstractions/perl>
+  #include <abstractions/zimbra-bash>
+  #include <abstractions/zimbra-ptrace>
+
+  /lib/x86_64-linux-gnu/ld-*.so mr,
+  /opt/zimbra/common/bin/swatchdog r,
+
+}

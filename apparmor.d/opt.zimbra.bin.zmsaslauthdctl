@@ -1,0 +1,21 @@
+# Last Modified: Tue May 17 14:42:20 2022
+#include <tunables/global>
+
+/opt/zimbra/bin/zmsaslauthdctl flags=(complain) {
+  #include <abstractions/base>
+  #include <abstractions/bash>
+  #include <abstractions/consoles>
+  #include <abstractions/nameservice>
+  #include <abstractions/zimbra-bash>
+  #include <abstractions/zimbra-ptrace>
+
+  signal send set=term peer=/opt/zimbra/common/sbin/saslauthd,
+
+  /lib/x86_64-linux-gnu/ld-*.so mr,
+  /opt/zimbra/bin/zmsaslauthdctl Px,
+  /opt/zimbra/common/sbin/saslauthd Px,
+  /opt/zimbra/libexec/configrewrite Ux,
+  /proc/*/* r,
+  owner /opt/zimbra/data/sasl2/state/saslauthd.pid r,
+
+}

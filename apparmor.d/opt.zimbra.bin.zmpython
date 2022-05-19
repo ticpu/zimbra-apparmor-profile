@@ -1,0 +1,12 @@
+# Last Modified: Tue May 17 00:13:30 2022
+#include <tunables/global>
+
+/opt/zimbra/bin/zmpython flags=(complain) {
+  #include <abstractions/base>
+  #include <abstractions/bash>
+  #include <abstractions/zimbra-bash>
+  #include <abstractions/zimbra-ptrace>
+
+  /lib/x86_64-linux-gnu/ld-*.so mr,
+
+}

@@ -1,0 +1,16 @@
+# Last Modified: Tue May 17 00:14:06 2022
+#include <tunables/global>
+
+/opt/zimbra/common/sbin/postconf flags=(complain) {
+  #include <abstractions/base>
+
+  capability dac_read_search,
+
+  /lib/x86_64-linux-gnu/ld-*.so mr,
+  /opt/zimbra/common/conf/* r,
+  /opt/zimbra/common/lib/lib*so* mr,
+  /opt/zimbra/common/sbin/postconf mr,
+  /opt/zimbra/conf/* r,
+  owner /opt/zimbra/common/conf/* rwk,
+
+}

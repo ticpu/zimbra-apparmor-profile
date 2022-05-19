@@ -1,0 +1,22 @@
+# Last Modified: Tue Apr  5 20:17:22 2022
+#include <tunables/global>
+
+/opt/zimbra/common/sbin/opendkim {
+  #include <abstractions/base>
+  #include <abstractions/nameservice>
+
+  /lib/x86_64-linux-gnu/ld-*.so mr,
+  /opt/zimbra/common/etc/openldap/ldap.conf r,
+  /opt/zimbra/common/etc/ssl/openssl.cnf r,
+  /opt/zimbra/common/lib/**.so* mr,
+  /opt/zimbra/common/lib/lib*so* mr,
+  /opt/zimbra/common/lib/sasl2/ r,
+  /opt/zimbra/common/lib/sasl2/* r,
+  /opt/zimbra/common/sbin/opendkim mr,
+  owner /opt/zimbra/.ldaprc r,
+  owner /opt/zimbra/conf/ca/* r,
+  owner /opt/zimbra/conf/opendkim*.conf r,
+  owner /opt/zimbra/data/tmp/zmcontrol.out.* w,
+  owner /opt/zimbra/log/opendkim.pid w,
+
+}

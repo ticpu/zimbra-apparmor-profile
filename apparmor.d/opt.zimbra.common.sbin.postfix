@@ -1,0 +1,17 @@
+# Last Modified: Tue May 17 13:32:16 2022
+#include <tunables/global>
+
+/opt/zimbra/common/sbin/postfix flags=(complain) {
+  #include <abstractions/base>
+  #include <abstractions/bash>
+  #include <abstractions/nameservice>
+
+  /bin/dash ix,
+  /lib/x86_64-linux-gnu/ld-*.so mr,
+  /opt/zimbra/common/conf/* r,
+  /opt/zimbra/common/lib/lib*so* mr,
+  /opt/zimbra/common/libexec/postfix-script Px,
+  /opt/zimbra/common/sbin/postfix mr,
+  /opt/zimbra/data/tmp/* w,
+
+}

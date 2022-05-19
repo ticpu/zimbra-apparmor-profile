@@ -1,0 +1,42 @@
+# Last Modified: Tue May 17 00:13:16 2022
+#include <tunables/global>
+
+# vim:syntax=apparmor
+
+
+/opt/zimbra/bin/zmcontrol flags=(attach_disconnected,complain) {
+  #include <abstractions/base>
+  #include <abstractions/nameservice>
+  #include <abstractions/zimbra-bash>
+  #include <abstractions/zimbra-ptrace>
+
+  /bin/df Ux,
+  /lib/x86_64-linux-gnu/ld-*.so mr,
+  /opt/zimbra/ rw,
+  /opt/zimbra/bin/* Ux,
+  /opt/zimbra/bin/ldap Px,
+  /opt/zimbra/bin/zmamavisdctl Px,
+  /opt/zimbra/bin/zmantispamctl Px,
+  /opt/zimbra/bin/zmantivirusctl Px,
+  /opt/zimbra/bin/zmarchivectl Px,
+  /opt/zimbra/bin/zmcbpolicydctl Px,
+  /opt/zimbra/bin/zmconfigdctl Px,
+  /opt/zimbra/bin/zmspellctl Px,
+  /opt/zimbra/bin/zmstatctl Px,
+  /opt/zimbra/bin/zmstorectl Px,
+  /opt/zimbra/common/** r,
+  /opt/zimbra/common/lib/** mr,
+  /opt/zimbra/data/postfix/spool/ r,
+  /opt/zimbra/data/tmp/* w,
+  /opt/zimbra/db/ r,
+  /opt/zimbra/index/ r,
+  /opt/zimbra/logger/db/ r,
+  /opt/zimbra/redolog/ r,
+  /opt/zimbra/store/ r,
+  /tmp/* rwk,
+  /usr/lib/x86_64-linux-gnu/** mr,
+  owner /opt/zimbra/conf/** r,
+  owner /opt/zimbra/log/* w,
+  owner /proc/*/mountinfo r,
+
+}

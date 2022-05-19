@@ -1,0 +1,10 @@
+# Last Modified: Tue May 17 00:13:32 2022
+#include <tunables/global>
+
+/opt/zimbra/common/bin/mysqld_safe_helper flags=(complain) {
+  #include <abstractions/base>
+
+  /lib/x86_64-linux-gnu/ld-*.so mr,
+  /opt/zimbra/common/bin/mysqld_safe_helper mr,
+
+}

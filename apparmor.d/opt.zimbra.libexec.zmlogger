@@ -1,0 +1,13 @@
+# Last Modified: Tue May 17 15:02:25 2022
+#include <tunables/global>
+
+/opt/zimbra/libexec/zmlogger flags=(complain) {
+  #include <abstractions/base>
+  #include <abstractions/perl>
+  #include <abstractions/zimbra-bash>
+  #include <abstractions/zimbra-ptrace>
+
+  /lib/x86_64-linux-gnu/ld-*.so mr,
+  /opt/zimbra/libexec/zmlogger r,
+
+}

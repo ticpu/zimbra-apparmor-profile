@@ -1,0 +1,12 @@
+# Last Modified: Tue May 17 00:13:28 2022
+#include <tunables/global>
+
+/opt/zimbra/bin/zmmemcachedctl flags=(complain) {
+  #include <abstractions/base>
+  #include <abstractions/bash>
+  #include <abstractions/zimbra-bash>
+  #include <abstractions/zimbra-ptrace>
+
+  /lib/x86_64-linux-gnu/ld-*.so mr,
+
+}

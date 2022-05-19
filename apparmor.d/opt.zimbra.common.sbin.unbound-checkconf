@@ -1,0 +1,11 @@
+# Last Modified: Tue May 17 00:14:07 2022
+#include <tunables/global>
+
+/opt/zimbra/common/sbin/unbound-checkconf flags=(complain) {
+  #include <abstractions/base>
+
+  /lib/x86_64-linux-gnu/ld-*.so mr,
+  /opt/zimbra/common/lib/lib*so* mr,
+  /opt/zimbra/common/sbin/unbound-checkconf mr,
+
+}

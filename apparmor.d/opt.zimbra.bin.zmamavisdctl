@@ -1,0 +1,25 @@
+# Last Modified: Tue May 17 14:42:45 2022
+#include <tunables/global>
+
+/opt/zimbra/bin/zmamavisdctl flags=(complain) {
+  #include <abstractions/base>
+  #include <abstractions/bash>
+  #include <abstractions/consoles>
+  #include <abstractions/nameservice>
+  #include <abstractions/zimbra-bash>
+  #include <abstractions/zimbra-ptrace>
+
+  signal send set=term peer=/opt/zimbra/common/sbin/amavis-mc,
+  signal send set=term peer=/opt/zimbra/common/sbin/amavisd,
+  signal send set=term peer=unconfined,
+
+  /lib/x86_64-linux-gnu/ld-*.so mr,
+  /opt/zimbra/bin/zmamavisdctl Px,
+  /opt/zimbra/bin/zmlocalconfig Px,
+  /opt/zimbra/common/sbin/amavisd Px,
+  /opt/zimbra/libexec/configrewrite Ux,
+  /opt/zimbra/libexec/zmaltermimeconfig Px,
+  /opt/zimbra/libexec/zmaltermimeconfig r,
+  owner /opt/zimbra/data/amavisd/tmp/ r,
+
+}

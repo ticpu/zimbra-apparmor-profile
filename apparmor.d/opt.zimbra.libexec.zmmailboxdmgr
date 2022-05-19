@@ -1,0 +1,12 @@
+# Last Modified: Tue May 17 00:14:08 2022
+#include <tunables/global>
+
+/opt/zimbra/libexec/zmmailboxdmgr flags=(complain) {
+  #include <abstractions/base>
+
+  /lib/x86_64-linux-gnu/ld-*.so mr,
+  /opt/zimbra/common/lib/jvm/*/bin/java px -> zimbra_jvm,
+  /opt/zimbra/libexec/zmmailboxdmgr mr,
+  owner /opt/zimbra/log/* r,
+
+}

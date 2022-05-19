@@ -1,0 +1,25 @@
+# Last Modified: Tue May 17 14:43:31 2022
+#include <tunables/global>
+
+/opt/zimbra/common/sbin/amavis-mc flags=(complain) {
+  #include <abstractions/base>
+  #include <abstractions/nameservice>
+  #include <abstractions/perl>
+  #include <abstractions/zimbra-bash>
+  #include <abstractions/zimbra-ptrace>
+
+  capability setgid,
+  capability setuid,
+
+  signal receive set=term peer=/opt/zimbra/bin/zmamavisdctl,
+  signal send set=kill peer=/opt/zimbra/common/sbin/amavis-services,
+  signal send set=term peer=/opt/zimbra/common/sbin/amavis-services,
+  signal send set=term peer=unconfined,
+
+  /lib/x86_64-linux-gnu/ld-*.so mr,
+  /opt/zimbra/common/sbin/amavis-mc r,
+  /opt/zimbra/common/sbin/amavis-services Px,
+  owner /etc/shadow r,
+  owner /opt/zimbra/log/amavis-mc.pid w,
+
+}

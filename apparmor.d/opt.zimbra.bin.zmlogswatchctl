@@ -1,0 +1,14 @@
+# Last Modified: Tue May 17 14:42:20 2022
+#include <tunables/global>
+
+/opt/zimbra/bin/zmlogswatchctl flags=(complain) {
+  #include <abstractions/base>
+  #include <abstractions/bash>
+  #include <abstractions/consoles>
+  #include <abstractions/zimbra-bash>
+  #include <abstractions/zimbra-ptrace>
+
+  /lib/x86_64-linux-gnu/ld-*.so mr,
+  owner /opt/zimbra/log/* r,
+
+}

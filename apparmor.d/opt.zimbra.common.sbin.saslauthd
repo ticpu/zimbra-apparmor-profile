@@ -1,0 +1,22 @@
+# Last Modified: Mon May 16 22:24:52 2022
+#include <tunables/global>
+
+/opt/zimbra/common/sbin/saslauthd {
+  #include <abstractions/base>
+  #include <abstractions/nameservice>
+
+  signal receive set=term peer=/opt/zimbra/bin/zmsaslauthdctl,
+  signal send set=term peer=/opt/zimbra/bin/zmcontrol,
+  signal send set=term peer=/opt/zimbra/common/sbin/mysqld,
+  signal send set=term peer=unconfined,
+
+  /lib/x86_64-linux-gnu/ld-*.so mr,
+  /opt/zimbra/common/etc/ssl/openssl.cnf r,
+  /opt/zimbra/common/lib/lib*so* mr,
+  /opt/zimbra/common/sbin/saslauthd mr,
+  /opt/zimbra/common/share/curl/ca-bundle.crt r,
+  owner /opt/zimbra/conf/saslauthd.conf r,
+  owner /opt/zimbra/data/sasl2/state/* rwk,
+  owner /opt/zimbra/data/tmp/zmcontrol.out.* w,
+
+}

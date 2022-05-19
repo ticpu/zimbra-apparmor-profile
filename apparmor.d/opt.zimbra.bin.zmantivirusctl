@@ -1,0 +1,16 @@
+# Last Modified: Tue May 17 00:13:08 2022
+#include <tunables/global>
+
+/opt/zimbra/bin/zmantivirusctl flags=(complain) {
+  #include <abstractions/base>
+  #include <abstractions/bash>
+  #include <abstractions/consoles>
+  #include <abstractions/zimbra-bash>
+  #include <abstractions/zimbra-ptrace>
+
+  /lib/x86_64-linux-gnu/ld-*.so mr,
+  /opt/zimbra/bin/zmamavisdctl Px,
+  /opt/zimbra/bin/zmclamdctl Px,
+  /opt/zimbra/bin/zmfreshclamctl Px,
+
+}

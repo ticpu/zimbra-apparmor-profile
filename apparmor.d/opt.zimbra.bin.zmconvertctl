@@ -1,0 +1,15 @@
+# Last Modified: Tue May 17 00:13:17 2022
+#include <tunables/global>
+
+/opt/zimbra/bin/zmconvertctl flags=(complain) {
+  #include <abstractions/base>
+  #include <abstractions/bash>
+  #include <abstractions/consoles>
+  #include <abstractions/nameservice>
+  #include <abstractions/zimbra-bash>
+  #include <abstractions/zimbra-ptrace>
+
+  /lib/x86_64-linux-gnu/ld-*.so mr,
+  owner /opt/zimbra/log/convertd.pid r,
+
+}

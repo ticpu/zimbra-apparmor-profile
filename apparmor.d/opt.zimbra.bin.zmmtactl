@@ -1,0 +1,18 @@
+# Last Modified: Tue May 17 00:13:28 2022
+#include <tunables/global>
+
+/opt/zimbra/bin/zmmtactl flags=(complain) {
+  #include <abstractions/base>
+  #include <abstractions/bash>
+  #include <abstractions/consoles>
+  #include <abstractions/zimbra-bash>
+  #include <abstractions/zimbra-ptrace>
+
+  /lib/x86_64-linux-gnu/ld-*.so mr,
+  /opt/zimbra/bin/postfix Px,
+  /opt/zimbra/bin/zmlocalconfig Px,
+  /opt/zimbra/bin/zmsaslauthdctl Px,
+  /opt/zimbra/libexec/configrewrite Ux,
+  owner /opt/zimbra/conf/* r,
+
+}

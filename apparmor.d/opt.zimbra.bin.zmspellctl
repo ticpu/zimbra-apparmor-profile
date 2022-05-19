@@ -1,0 +1,16 @@
+# Last Modified: Tue May 17 00:13:31 2022
+#include <tunables/global>
+
+/opt/zimbra/bin/zmspellctl flags=(complain) {
+  #include <abstractions/base>
+  #include <abstractions/bash>
+  #include <abstractions/consoles>
+  #include <abstractions/zimbra-bash>
+  #include <abstractions/zimbra-ptrace>
+
+  /bin/bash mr,
+  /lib/x86_64-linux-gnu/ld-*.so mr,
+  /opt/zimbra/bin/zmapachectl Px,
+  /opt/zimbra/data/tmp/* rw,
+
+}

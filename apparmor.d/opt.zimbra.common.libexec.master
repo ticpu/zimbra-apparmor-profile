@@ -1,0 +1,391 @@
+# Last Modified: Mon May 16 22:26:42 2022
+#include <tunables/global>
+
+/opt/zimbra/common/libexec/master {
+  #include <abstractions/base>
+  #include <abstractions/nameservice>
+  #include <abstractions/postfix-common>
+
+  capability dac_override,
+  capability dac_read_search,
+  capability kill,
+
+  network unix,
+
+  signal receive set=hup peer=/opt/zimbra/common/libexec/postfix-script,
+  signal send set=term peer=/opt/zimbra/common/libexec/master///opt/zimbra/common/libexec/anvil,
+  signal send set=term peer=/opt/zimbra/common/libexec/master///opt/zimbra/common/libexec/bounce,
+  signal send set=term peer=/opt/zimbra/common/libexec/master///opt/zimbra/common/libexec/cleanup,
+  signal send set=term peer=/opt/zimbra/common/libexec/master///opt/zimbra/common/libexec/error,
+  signal send set=term peer=/opt/zimbra/common/libexec/master///opt/zimbra/common/libexec/lmtp,
+  signal send set=term peer=/opt/zimbra/common/libexec/master///opt/zimbra/common/libexec/pickup,
+  signal send set=term peer=/opt/zimbra/common/libexec/master///opt/zimbra/common/libexec/proxymap,
+  signal send set=term peer=/opt/zimbra/common/libexec/master///opt/zimbra/common/libexec/qmgr,
+  signal send set=term peer=/opt/zimbra/common/libexec/master///opt/zimbra/common/libexec/showq,
+  signal send set=term peer=/opt/zimbra/common/libexec/master///opt/zimbra/common/libexec/smtp,
+  signal send set=term peer=/opt/zimbra/common/libexec/master///opt/zimbra/common/libexec/smtpd,
+  signal send set=term peer=/opt/zimbra/common/libexec/master///opt/zimbra/common/libexec/tlsmgr,
+  signal send set=term peer=/opt/zimbra/common/libexec/master///opt/zimbra/common/libexec/trivial-rewrite,
+
+  /etc/aliases.lmdb r,
+  /lib/x86_64-linux-gnu/ld-*.so mr,
+  /opt/zimbra/common/conf/*.re r,
+  /opt/zimbra/common/conf/master.cf r,
+  /opt/zimbra/common/etc/openldap/ldap.conf r,
+  /opt/zimbra/common/etc/ssl/openssl.cnf r,
+  /opt/zimbra/common/lib/lib*so* mr,
+  /opt/zimbra/common/lib/sasl2/ r,
+  /opt/zimbra/common/lib/sasl2/*.la r,
+  /opt/zimbra/common/lib/sasl2/*.so* mr,
+  /opt/zimbra/common/libexec/anvil Cx,
+  /opt/zimbra/common/libexec/bounce Cx,
+  /opt/zimbra/common/libexec/bounce mr,
+  /opt/zimbra/common/libexec/cleanup Cx,
+  /opt/zimbra/common/libexec/cleanup mr,
+  /opt/zimbra/common/libexec/error Cx,
+  /opt/zimbra/common/libexec/error mr,
+  /opt/zimbra/common/libexec/lmtp Cx,
+  /opt/zimbra/common/libexec/lmtp mr,
+  /opt/zimbra/common/libexec/master mr,
+  /opt/zimbra/common/libexec/pickup Cx,
+  /opt/zimbra/common/libexec/pickup mr,
+  /opt/zimbra/common/libexec/postscreen Cx,
+  /opt/zimbra/common/libexec/postscreen mr,
+  /opt/zimbra/common/libexec/proxymap Cx,
+  /opt/zimbra/common/libexec/proxymap mr,
+  /opt/zimbra/common/libexec/qmgr Cx,
+  /opt/zimbra/common/libexec/qmgr mr,
+  /opt/zimbra/common/libexec/scache Cx,
+  /opt/zimbra/common/libexec/scache mr,
+  /opt/zimbra/common/libexec/showq Cx,
+  /opt/zimbra/common/libexec/smtp Cx,
+  /opt/zimbra/common/libexec/smtpd Cx,
+  /opt/zimbra/common/libexec/smtpd mr,
+  /opt/zimbra/common/libexec/tlsmgr Cx,
+  /opt/zimbra/common/libexec/tlsmgr mr,
+  /opt/zimbra/common/libexec/trivial-rewrite Cx,
+  /opt/zimbra/common/libexec/trivial-rewrite mr,
+  /opt/zimbra/conf/*.cf r,
+  /opt/zimbra/conf/ca/*.crt r,
+  /opt/zimbra/conf/custom_header_checks r,
+  /opt/zimbra/conf/dhparam.pem r,
+  /opt/zimbra/conf/postfix_header_checks r,
+  /opt/zimbra/conf/sasl2/smtpd.conf r,
+  /opt/zimbra/conf/smtpd.crt r,
+  /opt/zimbra/conf/smtpd.key r,
+  /opt/zimbra/data/postfix/spool/** rw,
+  /opt/zimbra/data/postfix/spool/maildrop/* rw,
+  /opt/zimbra/data/postfix/spool/pid/master.pid rwk,
+  /opt/zimbra/data/postfix/spool/private/* rw,
+  /opt/zimbra/data/tmp/* w,
+  /proc/sys/kernel/ngroups_max r,
+  owner /opt/zimbra/common/conf/main.cf r,
+  owner /opt/zimbra/common/libexec/smtp mr,
+  owner /opt/zimbra/data/postfix/data/master.lock rwk,
+  owner /opt/zimbra/data/postfix/data/postscreen_cache.lmdb rwk,
+  owner /opt/zimbra/data/postfix/data/prng_exch rwk,
+  owner /opt/zimbra/data/postfix/spool/** wk,
+  owner /opt/zimbra/data/postfix/spool/*/ r,
+  owner /opt/zimbra/data/postfix/spool/active/* rwk,
+  owner /opt/zimbra/data/postfix/spool/public/* w,
+
+
+  profile /opt/zimbra/common/libexec/anvil {
+    #include <abstractions/base>
+    #include <abstractions/nameservice>
+    #include <abstractions/postfix-common>
+
+    signal receive set=term peer=/opt/zimbra/common/libexec/master,
+
+    /lib/x86_64-linux-gnu/ld-*.so mr,
+    /opt/zimbra/common/conf/main.cf r,
+    /opt/zimbra/common/lib/lib*so* mr,
+    /opt/zimbra/common/libexec/anvil mr,
+    /proc/sys/kernel/ngroups_max r,
+    owner /opt/zimbra/data/postfix/spool/private/* rw,
+
+  }
+
+  profile /opt/zimbra/common/libexec/bounce {
+    #include <abstractions/base>
+    #include <abstractions/nameservice>
+    #include <abstractions/postfix-common>
+
+    capability dac_override,
+
+    signal receive set=term peer=/opt/zimbra/common/libexec/master,
+
+    /lib/x86_64-linux-gnu/ld-*.so mr,
+    /opt/zimbra/common/conf/main.cf r,
+    /opt/zimbra/common/lib/lib*so* mr,
+    /opt/zimbra/common/libexec/bounce mr,
+    /opt/zimbra/data/postfix/spool/** rw,
+    /proc/sys/kernel/ngroups_max r,
+    owner /opt/zimbra/data/postfix/spool/** wk,
+
+  }
+
+  profile /opt/zimbra/common/libexec/cleanup {
+    #include <abstractions/base>
+    #include <abstractions/nameservice>
+    #include <abstractions/postfix-common>
+
+    capability dac_override,
+    capability dac_read_search,
+
+    signal receive set=term peer=/opt/zimbra/common/libexec/master,
+
+    /lib/x86_64-linux-gnu/ld-*.so mr,
+    /opt/zimbra/common/conf/main.cf r,
+    /opt/zimbra/common/lib/lib*so* mr,
+    /opt/zimbra/common/libexec/cleanup mr,
+    /opt/zimbra/conf/custom_header_checks r,
+    /opt/zimbra/conf/postfix_header_checks r,
+    /opt/zimbra/data/postfix/spool/** rw,
+    /proc/sys/kernel/ngroups_max r,
+    owner /opt/zimbra/data/postfix/spool/** rwk,
+
+  }
+
+  profile /opt/zimbra/common/libexec/error {
+    #include <abstractions/base>
+    #include <abstractions/nameservice>
+    #include <abstractions/postfix-common>
+
+    capability dac_override,
+
+    signal receive set=term peer=/opt/zimbra/common/libexec/master,
+
+    /lib/x86_64-linux-gnu/ld-*.so mr,
+    /opt/zimbra/common/conf/main.cf r,
+    /opt/zimbra/common/lib/lib*so* mr,
+    /opt/zimbra/common/libexec/error mr,
+    /opt/zimbra/data/postfix/spool/** rw,
+    /proc/sys/kernel/ngroups_max r,
+    owner /opt/zimbra/data/postfix/spool/** rwk,
+
+  }
+
+  profile /opt/zimbra/common/libexec/lmtp {
+    #include <abstractions/base>
+    #include <abstractions/nameservice>
+    #include <abstractions/postfix-common>
+
+    capability dac_override,
+    capability dac_read_search,
+
+    signal receive set=term peer=/opt/zimbra/common/libexec/master,
+
+    /lib/x86_64-linux-gnu/ld-*.so mr,
+    /opt/zimbra/common/conf/main.cf r,
+    /opt/zimbra/common/etc/ssl/openssl.cnf r,
+    /opt/zimbra/common/lib/lib*so* mr,
+    /opt/zimbra/common/libexec/lmtp mr,
+    /opt/zimbra/data/postfix/spool/** rw,
+    /proc/sys/kernel/ngroups_max r,
+    owner /opt/zimbra/data/postfix/spool/** rwk,
+
+  }
+
+  profile /opt/zimbra/common/libexec/pickup {
+    #include <abstractions/base>
+    #include <abstractions/nameservice>
+    #include <abstractions/postfix-common>
+
+    signal receive set=term peer=/opt/zimbra/common/libexec/master,
+
+    /lib/x86_64-linux-gnu/ld-*.so mr,
+    /opt/zimbra/common/conf/main.cf r,
+    /opt/zimbra/common/lib/lib*so* mr,
+    /opt/zimbra/common/libexec/pickup mr,
+    /opt/zimbra/data/postfix/spool/maildrop/* rw,
+    /proc/sys/kernel/ngroups_max r,
+    owner /opt/zimbra/data/postfix/spool/** r,
+    owner /opt/zimbra/data/postfix/spool/public/cleanup w,
+
+  }
+
+  profile /opt/zimbra/common/libexec/postscreen {
+    #include <abstractions/base>
+    #include <abstractions/nameservice>
+    #include <abstractions/postfix-common>
+
+    /lib/x86_64-linux-gnu/ld-*.so mr,
+    /opt/zimbra/common/conf/main.cf r,
+    /opt/zimbra/common/lib/lib*so* mr,
+    /opt/zimbra/common/libexec/postscreen mr,
+    /opt/zimbra/data/postfix/spool/private/smtpd rw,
+    /proc/sys/kernel/ngroups_max r,
+    owner /opt/zimbra/data/postfix/data/postscreen_cache.lmdb rwk,
+
+  }
+
+  profile /opt/zimbra/common/libexec/proxymap {
+    #include <abstractions/base>
+    #include <abstractions/nameservice>
+    #include <abstractions/postfix-common>
+
+    signal receive set=term peer=/opt/zimbra/common/libexec/master,
+
+    /lib/x86_64-linux-gnu/ld-*.so mr,
+    /opt/zimbra/common/conf/main.cf r,
+    /opt/zimbra/common/etc/openldap/ldap.conf r,
+    /opt/zimbra/common/etc/ssl/openssl.cnf r,
+    /opt/zimbra/common/lib/lib*so* mr,
+    /opt/zimbra/common/lib/sasl2/ r,
+    /opt/zimbra/common/lib/sasl2/*.la r,
+    /opt/zimbra/common/lib/sasl2/*.so* mr,
+    /opt/zimbra/common/lib/sasl2/libanonymous.so.* mr,
+    /opt/zimbra/common/libexec/proxymap mr,
+    /opt/zimbra/conf/*.cf r,
+    /opt/zimbra/conf/ca/*.crt r,
+    /proc/sys/kernel/ngroups_max r,
+    owner /opt/zimbra/data/postfix/spool/private/* rw,
+
+  }
+
+  profile /opt/zimbra/common/libexec/qmgr {
+    #include <abstractions/base>
+    #include <abstractions/nameservice>
+    #include <abstractions/postfix-common>
+
+    signal receive set=term peer=/opt/zimbra/common/libexec/master,
+
+    /lib/x86_64-linux-gnu/ld-*.so mr,
+    /opt/zimbra/common/conf/main.cf r,
+    /opt/zimbra/common/lib/lib*so* mr,
+    /opt/zimbra/common/libexec/qmgr mr,
+    /proc/sys/kernel/ngroups_max r,
+    owner /opt/zimbra/data/postfix/spool/** rwk,
+    owner /opt/zimbra/data/postfix/spool/*/ r,
+    owner /opt/zimbra/data/postfix/spool/deferred/** rw,
+
+  }
+
+  profile /opt/zimbra/common/libexec/scache {
+    #include <abstractions/base>
+    #include <abstractions/nameservice>
+    #include <abstractions/postfix-common>
+
+    /lib/x86_64-linux-gnu/ld-*.so mr,
+    /opt/zimbra/common/conf/main.cf r,
+    /opt/zimbra/common/lib/lib*so* mr,
+    /opt/zimbra/common/libexec/scache mr,
+    /opt/zimbra/data/postfix/spool/private/scache rw,
+    /proc/sys/kernel/ngroups_max r,
+
+  }
+
+  profile /opt/zimbra/common/libexec/showq {
+    #include <abstractions/base>
+    #include <abstractions/nameservice>
+    #include <abstractions/postfix-common>
+
+    capability dac_override,
+
+    signal receive set=term peer=/opt/zimbra/common/libexec/master,
+
+    /lib/x86_64-linux-gnu/ld-*.so mr,
+    /opt/zimbra/common/conf/main.cf r,
+    /opt/zimbra/common/lib/lib*so* mr,
+    /opt/zimbra/common/libexec/showq mr,
+    /opt/zimbra/data/postfix/spool/** rw,
+    /proc/sys/kernel/ngroups_max r,
+    owner /opt/zimbra/data/postfix/spool/** rwk,
+
+  }
+
+  profile /opt/zimbra/common/libexec/smtp {
+    #include <abstractions/base>
+    #include <abstractions/nameservice>
+    #include <abstractions/postfix-common>
+
+    capability dac_override,
+    capability dac_read_search,
+
+    signal receive set=term peer=/opt/zimbra/common/libexec/master,
+
+    /lib/x86_64-linux-gnu/ld-*.so mr,
+    /opt/zimbra/common/conf/main.cf r,
+    /opt/zimbra/common/etc/ssl/openssl.cnf r,
+    /opt/zimbra/common/lib/lib*so* mr,
+    /opt/zimbra/common/libexec/smtp mr,
+    /opt/zimbra/data/postfix/spool/pid/unix.smtp rw,
+    /opt/zimbra/data/postfix/spool/pid/unix.smtp-amavis rwk,
+    /opt/zimbra/data/postfix/spool/private/tlsmgr rw,
+    /proc/sys/kernel/ngroups_max r,
+    owner /opt/zimbra/data/postfix/spool/active/* rwk,
+    owner /opt/zimbra/data/postfix/spool/pid/unix.smtp rwk,
+    owner /opt/zimbra/data/postfix/spool/private/* rw,
+
+  }
+
+  profile /opt/zimbra/common/libexec/smtpd {
+    #include <abstractions/base>
+    #include <abstractions/nameservice>
+    #include <abstractions/postfix-common>
+
+    capability dac_override,
+    capability dac_read_search,
+
+    signal receive set=term peer=/opt/zimbra/common/libexec/master,
+
+    /etc/aliases.lmdb r,
+    /lib/x86_64-linux-gnu/ld-*.so mr,
+    /opt/zimbra/common/conf/*.re r,
+    /opt/zimbra/common/conf/main.cf r,
+    /opt/zimbra/common/etc/ssl/openssl.cnf r,
+    /opt/zimbra/common/lib/lib*so* mr,
+    /opt/zimbra/common/lib/sasl2/ r,
+    /opt/zimbra/common/lib/sasl2/*.la r,
+    /opt/zimbra/common/libexec/smtpd mr,
+    /opt/zimbra/conf/dhparam.pem r,
+    /opt/zimbra/conf/sasl2/smtpd.conf r,
+    /opt/zimbra/conf/smtpd.crt r,
+    /opt/zimbra/conf/smtpd.key r,
+    /opt/zimbra/data/postfix/spool/pid/* rw,
+    /opt/zimbra/data/postfix/spool/private/* rw,
+    /opt/zimbra/data/sasl2/state/mux rw,
+    /proc/sys/kernel/ngroups_max r,
+    owner /opt/zimbra/common/lib/sasl2/lib*.so* mr,
+    owner /opt/zimbra/data/postfix/spool/pid/* rwk,
+    owner /opt/zimbra/data/postfix/spool/public/* rw,
+
+  }
+
+  profile /opt/zimbra/common/libexec/tlsmgr {
+    #include <abstractions/base>
+    #include <abstractions/nameservice>
+    #include <abstractions/postfix-common>
+
+    signal receive set=term peer=/opt/zimbra/common/libexec/master,
+
+    /lib/x86_64-linux-gnu/ld-*.so mr,
+    /opt/zimbra/common/conf/main.cf r,
+    /opt/zimbra/common/lib/lib*so* mr,
+    /opt/zimbra/common/libexec/tlsmgr mr,
+    /proc/sys/kernel/ngroups_max r,
+    owner /opt/zimbra/data/postfix/data/prng_exch rwk,
+    owner /opt/zimbra/data/postfix/spool/private/* rw,
+
+  }
+
+  profile /opt/zimbra/common/libexec/trivial-rewrite {
+    #include <abstractions/base>
+    #include <abstractions/nameservice>
+    #include <abstractions/postfix-common>
+
+    capability dac_read_search,
+
+    signal receive set=term peer=/opt/zimbra/common/libexec/master,
+
+    /lib/x86_64-linux-gnu/ld-*.so mr,
+    /opt/zimbra/common/conf/main.cf r,
+    /opt/zimbra/common/lib/lib*so* mr,
+    /opt/zimbra/common/libexec/trivial-rewrite mr,
+    /opt/zimbra/data/postfix/spool/private/proxymap rw,
+    /proc/sys/kernel/ngroups_max r,
+    owner /opt/zimbra/data/postfix/spool/private/* rw,
+
+  }
+}

@@ -1,0 +1,25 @@
+# Last Modified: Tue May 17 14:43:31 2022
+#include <tunables/global>
+
+/opt/zimbra/bin/zmclamdctl flags=(complain) {
+  #include <abstractions/base>
+  #include <abstractions/bash>
+  #include <abstractions/consoles>
+  #include <abstractions/nameservice>
+  #include <abstractions/zimbra-bash>
+  #include <abstractions/zimbra-ptrace>
+
+  signal send set=term peer=/opt/zimbra/common/sbin/clamd,
+  signal send set=term peer=unconfined,
+
+  /lib/x86_64-linux-gnu/ld-*.so mr,
+  /opt/zimbra/bin/zmamavisdctl Px,
+  /opt/zimbra/bin/zmclamdctl Px,
+  /opt/zimbra/bin/zmlocalconfig Px,
+  /opt/zimbra/common/sbin/clamd Px,
+  /opt/zimbra/libexec/configrewrite Ux,
+  /proc/stat r,
+  owner /opt/zimbra/log/* r,
+  owner /opt/zimbra/log/* wk,
+
+}

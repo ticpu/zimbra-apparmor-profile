@@ -1,0 +1,28 @@
+# Last Modified: Tue May 17 14:49:52 2022
+#include <tunables/global>
+
+/opt/zimbra/libexec/zmstat-fd flags=(complain) {
+  #include <abstractions/authentication>
+  #include <abstractions/base>
+  #include <abstractions/nameservice>
+  #include <abstractions/perl>
+  #include <abstractions/zimbra-bash>
+  #include <abstractions/zimbra-ptrace>
+
+  capability chown,
+  capability dac_override,
+  capability dac_read_search,
+  capability fowner,
+  capability fsetid,
+
+  /lib/x86_64-linux-gnu/ld-*.so mr,
+  /opt/zimbra/bin/zmlocalconfig Px,
+  /opt/zimbra/libexec/zmstat-fd r,
+  /opt/zimbra/zmstat/* rw,
+  /tmp/* rwk,
+  owner /opt/zimbra/log/* r,
+  owner /opt/zimbra/zmstat/pid/* rw,
+  owner /proc/*/fd/ r,
+  owner /proc/sys/fs/file-nr r,
+
+}

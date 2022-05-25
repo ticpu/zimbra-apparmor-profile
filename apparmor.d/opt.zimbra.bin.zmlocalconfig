@@ -4,11 +4,12 @@
   #include <abstractions/base>
   #include <abstractions/bash>
   #include <abstractions/consoles>
+  #include <abstractions/nameservice>
   #include <abstractions/zimbra-bash>
   #include <abstractions/zimbra-ptrace>
 
   /lib/x86_64-linux-gnu/ld-*.so mr,
-  /opt/zimbra/common/lib/lib*so* r,
+  /opt/zimbra/common/lib/lib*so* mr,
   /opt/zimbra/zmstat/zmstat.out w,
   owner /opt/zimbra/log/zmlogswatch.out w,
 

@@ -3,9 +3,13 @@
 /opt/zimbra/bin/zmpython flags=(complain) {
   #include <abstractions/base>
   #include <abstractions/bash>
+  #include <abstractions/consoles>
   #include <abstractions/zimbra-bash>
   #include <abstractions/zimbra-ptrace>
 
+  signal send set=term peer=unconfined,
+
   /lib/x86_64-linux-gnu/ld-*.so mr,
+  /opt/zimbra/bin/zmjava Px,
 
 }

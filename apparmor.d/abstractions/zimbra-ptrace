@@ -1,3 +1,4 @@
+ptrace read peer=/opt/zimbra/bin/antispam-mysql.server,
 ptrace read peer=/opt/zimbra/bin/ldap,
 ptrace read peer=/opt/zimbra/bin/mysql,
 ptrace read peer=/opt/zimbra/bin/postfix,

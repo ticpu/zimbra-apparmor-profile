@@ -3,6 +3,8 @@
 /opt/zimbra/bin/antispam-mysql.server {
   #include <abstractions/base>
   #include <abstractions/bash>
+  #include <abstractions/consoles>
+  #include <abstractions/nameservice>
   #include <abstractions/zimbra-bash>
 
   /lib/x86_64-linux-gnu/ld-*.so mr,

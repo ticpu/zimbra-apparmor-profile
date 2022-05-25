@@ -8,5 +8,6 @@
   /lib/x86_64-linux-gnu/ld-*.so mr,
   /opt/zimbra/bin/zmpython Px,
   /opt/zimbra/libexec/zmconfigd r,
+  /usr/bin/env r,
 
 }

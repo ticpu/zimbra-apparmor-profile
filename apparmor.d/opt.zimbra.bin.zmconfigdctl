@@ -8,9 +8,13 @@
   #include <abstractions/zimbra-bash>
   #include <abstractions/zimbra-ptrace>
 
+  signal send set=term peer=unconfined,
+  signal send set=term peer=zimbra_jvm,
+
   /lib/x86_64-linux-gnu/ld-*.so mr,
   /opt/zimbra/bin/zmconfigdctl Px,
   /opt/zimbra/libexec/zmconfigd Px,
+  /opt/zimbra/log/zmconfigd.pid rw,
   owner /opt/zimbra/log/* r,
 
 }

@@ -7,6 +7,7 @@
 
   signal receive set=term peer=/opt/zimbra/bin/zmamavisdctl,
 
+  /bin/gzip mrix,
   /etc/magic r,
   /lib/x86_64-linux-gnu/ld-*.so mr,
   /opt/zimbra/common/etc/ssl/certs/ r,

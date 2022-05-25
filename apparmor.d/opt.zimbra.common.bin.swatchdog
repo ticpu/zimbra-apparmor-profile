@@ -2,6 +2,8 @@
 
 /opt/zimbra/common/bin/swatchdog {
   #include <abstractions/base>
+  #include <abstractions/nameservice>
+  #include <abstractions/openssl>
   #include <abstractions/perl>
   #include <abstractions/zimbra-bash>
   #include <abstractions/zimbra-ptrace>
@@ -11,8 +13,13 @@
   /etc/timezone r,
   /lib/x86_64-linux-gnu/ld-*.so mr,
   /opt/zimbra/common/bin/swatchdog r,
+  /opt/zimbra/common/etc/ssl/openssl.cnf r,
+  /opt/zimbra/common/lib/lib*so* mr,
+  /opt/zimbra/conf/swatchrc r,
   /opt/zimbra/libexec/zmlogger Px,
+  /run/nslcd/socket rw,
   /var/log/zimbra-stats.log r,
+  /var/log/zimbra.log r,
   owner /opt/zimbra/conf/logswatchrc r,
   owner /opt/zimbra/log/logswatch.pid w,
   owner /opt/zimbra/log/zmlogswatch.out w,

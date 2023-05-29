@@ -1,6 +1,6 @@
 #include <tunables/global>
 
-/opt/zimbra/common/sbin/amavisd flags=(complain) {
+/opt/zimbra/common/sbin/amavisd {
   #include <abstractions/base>
   #include <abstractions/nameservice>
   #include <abstractions/perl>
@@ -14,6 +14,7 @@
   /opt/zimbra/common/etc/ssl/openssl.cnf r,
   /opt/zimbra/common/lib/lib*so* mr,
   /opt/zimbra/common/lib/perl5/** mr,
+  /opt/zimbra/common/sbin/amavisd Px,
   /opt/zimbra/common/sbin/amavisd r,
   /opt/zimbra/data/clamav/clamav.sock r,
   /run/nslcd/socket rw,

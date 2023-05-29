@@ -1,6 +1,6 @@
 #include <tunables/global>
 
-/opt/zimbra/common/sbin/postconf flags=(complain) {
+/opt/zimbra/common/sbin/postconf {
   #include <abstractions/base>
 
   capability dac_read_search,
@@ -10,6 +10,7 @@
   /opt/zimbra/common/lib/lib*so* mr,
   /opt/zimbra/common/sbin/postconf mr,
   /opt/zimbra/conf/* r,
+  /opt/zimbra/data/tmp/* w,
   owner /opt/zimbra/common/conf/* rwk,
 
 }

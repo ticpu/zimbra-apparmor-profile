@@ -1,6 +1,6 @@
 #include <tunables/global>
 
-/opt/zimbra/libexec/zmstat-fd flags=(complain) {
+/opt/zimbra/libexec/zmstat-fd {
   #include <abstractions/authentication>
   #include <abstractions/base>
   #include <abstractions/nameservice>

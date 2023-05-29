@@ -1,6 +1,6 @@
 #include <tunables/global>
 
-/opt/zimbra/bin/zmpython flags=(complain) {
+/opt/zimbra/bin/zmpython {
   #include <abstractions/base>
   #include <abstractions/bash>
   #include <abstractions/consoles>

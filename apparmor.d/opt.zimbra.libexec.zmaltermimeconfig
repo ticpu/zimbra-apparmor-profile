@@ -1,6 +1,6 @@
 #include <tunables/global>
 
-/opt/zimbra/libexec/zmaltermimeconfig flags=(complain) {
+/opt/zimbra/libexec/zmaltermimeconfig {
   #include <abstractions/base>
   #include <abstractions/consoles>
   #include <abstractions/nameservice>

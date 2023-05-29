@@ -1,6 +1,6 @@
 #include <tunables/global>
 
-/opt/zimbra/common/bin/httpd flags=(complain) {
+/opt/zimbra/common/bin/httpd {
   #include <abstractions/base>
   #include <abstractions/nameservice>
   #include <abstractions/zimbra-ptrace>
@@ -9,6 +9,8 @@
   signal send set=term peer=unconfined,
 
   / r,
+  /bin/find mrix,
+  /bin/rm mrix,
   /lib/x86_64-linux-gnu/ld-*.so mr,
   /opt/zimbra/common/bin/httpd mr,
   /opt/zimbra/common/bin/rotatelogs Px,
@@ -31,9 +33,9 @@
   owner /tmp/php* rw,
 
 
-  ^DEFAULT_URI flags=(complain) {
+  ^DEFAULT_URI {
   }
 
-  ^HANDLING_UNTRUSTED_INPUT flags=(complain) {
+  ^HANDLING_UNTRUSTED_INPUT {
   }
 }

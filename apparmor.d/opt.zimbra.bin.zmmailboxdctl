@@ -1,6 +1,6 @@
 #include <tunables/global>
 
-/opt/zimbra/bin/zmmailboxdctl flags=(complain) {
+/opt/zimbra/bin/zmmailboxdctl {
   #include <abstractions/base>
   #include <abstractions/bash>
   #include <abstractions/consoles>
@@ -9,10 +9,18 @@
   #include <abstractions/zimbra-ptrace>
 
   /lib/x86_64-linux-gnu/ld-*.so mr,
+  /opt/zimbra/bin/zmprov Px,
+  /opt/zimbra/bin/zmthrdump Px,
   /opt/zimbra/libexec/zmhostname Px,
   /opt/zimbra/libexec/zmlocalconfig Px,
   /opt/zimbra/libexec/zmmailboxdmgr Px,
   /opt/zimbra/libexec/zmupdatedownload Px,
+  /opt/zimbra/log/zmmailboxd_java.pid r,
   owner /opt/zimbra/conf/* r,
+  owner /opt/zimbra/jetty_base/work/service/ rw,
+  owner /opt/zimbra/jetty_base/work/service/** w,
+  owner /opt/zimbra/jetty_base/work/zimbraAdmin/ rw,
+  owner /opt/zimbra/jetty_base/work/zimbraAdmin/** w,
+  owner /opt/zimbra/log/* rw,
 
 }

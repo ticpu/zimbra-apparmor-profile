@@ -1,6 +1,6 @@
 #include <tunables/global>
 
-/opt/zimbra/bin/zmconfigdctl flags=(complain) {
+/opt/zimbra/bin/zmconfigdctl {
   #include <abstractions/base>
   #include <abstractions/bash>
   #include <abstractions/consoles>

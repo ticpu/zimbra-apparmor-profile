@@ -1,8 +1,10 @@
 #include <tunables/global>
 
-/opt/zimbra/bin/zmcbpolicydctl flags=(complain) {
+/opt/zimbra/bin/zmcbpolicydctl {
   #include <abstractions/base>
   #include <abstractions/bash>
+  #include <abstractions/consoles>
+  #include <abstractions/nameservice>
   #include <abstractions/zimbra-bash>
   #include <abstractions/zimbra-ptrace>
 

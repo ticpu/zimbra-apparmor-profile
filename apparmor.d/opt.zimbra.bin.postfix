@@ -1,6 +1,6 @@
 #include <tunables/global>
 
-/opt/zimbra/bin/postfix flags=(complain) {
+/opt/zimbra/bin/postfix {
   #include <abstractions/base>
   #include <abstractions/bash>
   #include <abstractions/consoles>

@@ -1,12 +1,14 @@
 #include <tunables/global>
 
-/opt/zimbra/bin/zmstorectl flags=(complain) {
+/opt/zimbra/bin/zmstorectl {
   #include <abstractions/base>
   #include <abstractions/bash>
   #include <abstractions/consoles>
   #include <abstractions/nameservice>
   #include <abstractions/zimbra-bash>
   #include <abstractions/zimbra-ptrace>
+
+  signal send set=term peer=/opt/zimbra/common/sbin/mysqld,
 
   /lib/x86_64-linux-gnu/ld-*.so mr,
   /opt/zimbra/bin/mysql rix,
@@ -18,11 +20,14 @@
   /opt/zimbra/common/bin/mysqladmin ix,
   /opt/zimbra/common/bin/mysqld_safe rix,
   /opt/zimbra/common/bin/mysqld_safe_helper Px,
+  /opt/zimbra/common/lib/lib*so* mr,
   /opt/zimbra/common/lib/mysql/* mr,
   /opt/zimbra/common/sbin/mysqld Px,
   /opt/zimbra/common/share/mysql/** r,
   owner /opt/zimbra/conf/* r,
   owner /opt/zimbra/data/tmp/** rw,
   owner /opt/zimbra/log/* r,
+  owner /opt/zimbra/log/mysql.pid w,
+  owner /opt/zimbra/log/mysql_error.log w,
 
 }

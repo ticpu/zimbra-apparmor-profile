@@ -1,6 +1,6 @@
 #include <tunables/global>
 
-/opt/zimbra/bin/zmhactl flags=(complain) {
+/opt/zimbra/bin/zmhactl {
   #include <abstractions/base>
   #include <abstractions/bash>
   #include <abstractions/zimbra-bash>

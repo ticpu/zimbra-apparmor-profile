@@ -1,6 +1,6 @@
 #include <tunables/global>
 
-/opt/zimbra/bin/zmjava flags=(complain) {
+/opt/zimbra/bin/zmjava {
   #include <abstractions/base>
   #include <abstractions/bash>
   #include <abstractions/consoles>
@@ -9,6 +9,8 @@
 
   /lib/x86_64-linux-gnu/ld-*.so mr,
   /opt/zimbra/bin/zmlocalconfig Px,
+  /opt/zimbra/data/spamassassin/ r,
+  /opt/zimbra/data/spamassassin/rules/ r,
   owner /opt/zimbra/zmstat/* w,
 
 }

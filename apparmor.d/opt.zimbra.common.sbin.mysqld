@@ -4,6 +4,7 @@
   #include <abstractions/base>
   #include <abstractions/nameservice>
 
+  signal receive set=term peer=/opt/zimbra/bin/zmstorectl,
   signal receive set=term peer=/opt/zimbra/common/sbin/saslauthd,
 
   /lib/x86_64-linux-gnu/ld-*.so mr,

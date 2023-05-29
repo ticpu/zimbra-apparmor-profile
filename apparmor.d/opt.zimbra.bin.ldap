@@ -1,6 +1,6 @@
 #include <tunables/global>
 
-/opt/zimbra/bin/ldap flags=(complain) {
+/opt/zimbra/bin/ldap {
   #include <abstractions/base>
   #include <abstractions/bash>
   #include <abstractions/consoles>
@@ -12,6 +12,7 @@
 
   /lib/x86_64-linux-gnu/ld-*.so mr,
   /opt/zimbra/common/bin/ldapsearch Px,
+  /opt/zimbra/libexec/zmslapd px,
   owner /opt/zimbra/data/ldap/** r,
 
 }

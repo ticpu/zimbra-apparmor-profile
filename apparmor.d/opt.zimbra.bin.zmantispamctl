@@ -14,5 +14,6 @@
   /opt/zimbra/bin/zmhostname Px,
   /opt/zimbra/bin/zmlocalconfig Px,
   /opt/zimbra/bin/zmprov Px,
+  /opt/zimbra/data/spamassassin/ r,
 
 }

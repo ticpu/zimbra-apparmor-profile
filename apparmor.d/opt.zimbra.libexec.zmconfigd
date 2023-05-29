@@ -1,6 +1,6 @@
 #include <tunables/global>
 
-/opt/zimbra/libexec/zmconfigd flags=(complain) {
+/opt/zimbra/libexec/zmconfigd {
   #include <abstractions/base>
   #include <abstractions/zimbra-bash>
   #include <abstractions/zimbra-ptrace>

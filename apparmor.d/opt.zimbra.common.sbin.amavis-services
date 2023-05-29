@@ -1,6 +1,6 @@
 #include <tunables/global>
 
-/opt/zimbra/common/sbin/amavis-services flags=(complain) {
+/opt/zimbra/common/sbin/amavis-services {
   #include <abstractions/base>
   #include <abstractions/nameservice>
   #include <abstractions/perl>

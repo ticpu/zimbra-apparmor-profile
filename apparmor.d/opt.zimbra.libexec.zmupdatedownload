@@ -1,6 +1,6 @@
 #include <tunables/global>
 
-/opt/zimbra/libexec/zmupdatedownload flags=(complain) {
+/opt/zimbra/libexec/zmupdatedownload {
   #include <abstractions/base>
   #include <abstractions/bash>
   #include <abstractions/consoles>

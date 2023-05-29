@@ -1,6 +1,6 @@
 #include <tunables/global>
 
-/opt/zimbra/bin/zmmemcachedctl flags=(complain) {
+/opt/zimbra/bin/zmmemcachedctl {
   #include <abstractions/base>
   #include <abstractions/bash>
   #include <abstractions/zimbra-bash>

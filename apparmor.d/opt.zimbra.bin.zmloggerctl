@@ -1,6 +1,6 @@
 #include <tunables/global>
 
-/opt/zimbra/bin/zmloggerctl flags=(complain) {
+/opt/zimbra/bin/zmloggerctl {
   #include <abstractions/base>
   #include <abstractions/bash>
   #include <abstractions/consoles>

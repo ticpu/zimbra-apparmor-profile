@@ -1,6 +1,6 @@
 #include <tunables/global>
 
-/opt/zimbra/common/bin/apachectl flags=(complain) {
+/opt/zimbra/common/bin/apachectl {
   #include <abstractions/base>
   #include <abstractions/bash>
   #include <abstractions/zimbra-bash>

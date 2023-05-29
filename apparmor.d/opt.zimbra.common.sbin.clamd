@@ -1,6 +1,6 @@
 #include <tunables/global>
 
-/opt/zimbra/common/sbin/clamd flags=(complain) {
+/opt/zimbra/common/sbin/clamd {
   #include <abstractions/base>
   #include <abstractions/nameservice>
 
@@ -9,12 +9,15 @@
   /lib/x86_64-linux-gnu/ld-*.so mr,
   /opt/zimbra/common/lib/lib*so* mr,
   /opt/zimbra/common/sbin/clamd mr,
+  /sys/fs/cgroup/**/cpu.cfs_quota_us r,
   owner /opt/zimbra/conf/clamd.conf r,
   owner /opt/zimbra/data/amavisd/tmp/** r,
   owner /opt/zimbra/data/clamav/** r,
   owner /opt/zimbra/data/clamav/** w,
   owner /opt/zimbra/log/clamd.log wk,
   owner /opt/zimbra/log/clamd.pid w,
+  owner /proc/*/cgroup r,
+  owner /proc/*/mountinfo r,
   owner /tmp/** rw,
 
 }

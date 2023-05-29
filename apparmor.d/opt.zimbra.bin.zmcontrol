@@ -3,7 +3,7 @@
 # vim:syntax=apparmor
 
 
-/opt/zimbra/bin/zmcontrol flags=(attach_disconnected,complain) {
+/opt/zimbra/bin/zmcontrol flags=(attach_disconnected) {
   #include <abstractions/base>
   #include <abstractions/nameservice>
   #include <abstractions/zimbra-bash>
@@ -34,7 +34,9 @@
   /opt/zimbra/store/ r,
   /tmp/* rwk,
   /usr/lib/x86_64-linux-gnu/** mr,
+  owner /opt/zimbra/* w,
   owner /opt/zimbra/conf/** r,
+  owner /opt/zimbra/log/* r,
   owner /opt/zimbra/log/* w,
   owner /proc/*/mountinfo r,
 

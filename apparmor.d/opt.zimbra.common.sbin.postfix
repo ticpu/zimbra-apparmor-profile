@@ -1,6 +1,6 @@
 #include <tunables/global>
 
-/opt/zimbra/common/sbin/postfix flags=(complain) {
+/opt/zimbra/common/sbin/postfix {
   #include <abstractions/base>
   #include <abstractions/bash>
   #include <abstractions/nameservice>

@@ -12,6 +12,7 @@
   network unix,
 
   signal receive set=hup peer=/opt/zimbra/common/libexec/postfix-script,
+  signal receive set=term peer=/opt/zimbra/common/libexec/postfix-script,
   signal send set=term peer=/opt/zimbra/common/libexec/master///opt/zimbra/common/libexec/anvil,
   signal send set=term peer=/opt/zimbra/common/libexec/master///opt/zimbra/common/libexec/bounce,
   signal send set=term peer=/opt/zimbra/common/libexec/master///opt/zimbra/common/libexec/cleanup,
@@ -20,6 +21,7 @@
   signal send set=term peer=/opt/zimbra/common/libexec/master///opt/zimbra/common/libexec/pickup,
   signal send set=term peer=/opt/zimbra/common/libexec/master///opt/zimbra/common/libexec/proxymap,
   signal send set=term peer=/opt/zimbra/common/libexec/master///opt/zimbra/common/libexec/qmgr,
+  signal send set=term peer=/opt/zimbra/common/libexec/master///opt/zimbra/common/libexec/scache,
   signal send set=term peer=/opt/zimbra/common/libexec/master///opt/zimbra/common/libexec/showq,
   signal send set=term peer=/opt/zimbra/common/libexec/master///opt/zimbra/common/libexec/smtp,
   signal send set=term peer=/opt/zimbra/common/libexec/master///opt/zimbra/common/libexec/smtpd,
@@ -265,6 +267,8 @@
     #include <abstractions/base>
     #include <abstractions/nameservice>
     #include <abstractions/postfix-common>
+
+    signal receive set=term peer=/opt/zimbra/common/libexec/master,
 
     /lib/x86_64-linux-gnu/ld-*.so mr,
     /opt/zimbra/common/conf/main.cf r,

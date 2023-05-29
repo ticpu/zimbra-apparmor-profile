@@ -1,6 +1,6 @@
 #include <tunables/global>
 
-/opt/zimbra/bin/zmsaslauthdctl flags=(complain) {
+/opt/zimbra/bin/zmsaslauthdctl {
   #include <abstractions/base>
   #include <abstractions/bash>
   #include <abstractions/consoles>

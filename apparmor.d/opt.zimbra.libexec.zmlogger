@@ -1,6 +1,6 @@
 #include <tunables/global>
 
-/opt/zimbra/libexec/zmlogger flags=(complain) {
+/opt/zimbra/libexec/zmlogger {
   #include <abstractions/base>
   #include <abstractions/nameservice>
   #include <abstractions/perl>
@@ -13,6 +13,7 @@
   /lib/x86_64-linux-gnu/ld-*.so mr,
   /opt/zimbra/common/lib/lib*so* mr,
   /opt/zimbra/libexec/zmlogger r,
+  /opt/zimbra/libexec/zmrrdfetch Px,
   owner /opt/zimbra/log/* w,
   owner /opt/zimbra/logger/** rwk,
 

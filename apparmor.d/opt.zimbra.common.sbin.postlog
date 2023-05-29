@@ -1,6 +1,6 @@
 #include <tunables/global>
 
-/opt/zimbra/common/sbin/postlog flags=(complain) {
+/opt/zimbra/common/sbin/postlog {
   #include <abstractions/base>
   #include <abstractions/nameservice>
 

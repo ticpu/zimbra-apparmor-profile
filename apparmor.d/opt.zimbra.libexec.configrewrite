@@ -1,6 +1,6 @@
 #include <tunables/global>
 
-/opt/zimbra/libexec/configrewrite flags=(complain) {
+/opt/zimbra/libexec/configrewrite {
   #include <abstractions/base>
   #include <abstractions/bash>
   #include <abstractions/consoles>

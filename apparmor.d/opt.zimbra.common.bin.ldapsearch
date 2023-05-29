@@ -1,6 +1,6 @@
 #include <tunables/global>
 
-/opt/zimbra/common/bin/ldapsearch flags=(complain) {
+/opt/zimbra/common/bin/ldapsearch {
   #include <abstractions/base>
   #include <abstractions/nameservice>
 

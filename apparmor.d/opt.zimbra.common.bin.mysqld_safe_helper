@@ -1,9 +1,11 @@
 #include <tunables/global>
 
-/opt/zimbra/common/bin/mysqld_safe_helper flags=(complain) {
+/opt/zimbra/common/bin/mysqld_safe_helper {
   #include <abstractions/base>
+  #include <abstractions/nameservice>
 
   /lib/x86_64-linux-gnu/ld-*.so mr,
   /opt/zimbra/common/bin/mysqld_safe_helper mr,
+  owner /opt/zimbra/log/mysql_error.log w,
 
 }

@@ -1,6 +1,6 @@
 #include <tunables/global>
 
-/opt/zimbra/convertd/convert flags=(complain) {
+/opt/zimbra/convertd/convert {
   #include <abstractions/base>
 
 }

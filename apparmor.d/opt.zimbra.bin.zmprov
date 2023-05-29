@@ -1,6 +1,6 @@
 #include <tunables/global>
 
-/opt/zimbra/bin/zmprov flags=(complain) {
+/opt/zimbra/bin/zmprov {
   #include <abstractions/base>
   #include <abstractions/bash>
   #include <abstractions/consoles>

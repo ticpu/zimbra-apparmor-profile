@@ -19,7 +19,8 @@
   /opt/zimbra/common/sbin/unbound mr,
   /opt/zimbra/conf/unbound.conf r,
   /opt/zimbra/data/tmp/zmcontrol.out.* w,
+  /opt/zimbra/log/unbound.pid rw,
   owner /opt/zimbra/common/etc/ssl/openssl.cnf r,
-  owner /opt/zimbra/log/unbound.pid w,
+  owner /opt/zimbra/conf/root.key r,
 
 }

@@ -1,6 +1,6 @@
 #include <tunables/global>
 
-/opt/zimbra/common/sbin/amavis-mc flags=(complain) {
+/opt/zimbra/common/sbin/amavis-mc {
   #include <abstractions/base>
   #include <abstractions/nameservice>
   #include <abstractions/perl>
@@ -17,6 +17,7 @@
   /lib/x86_64-linux-gnu/ld-*.so mr,
   /opt/zimbra/common/sbin/amavis-mc r,
   /opt/zimbra/common/sbin/amavis-services Px,
+  /opt/zimbra/data/tmp/* w,
   owner /etc/shadow r,
   owner /opt/zimbra/common/lib/perl5/** mr,
   owner /opt/zimbra/log/amavis-mc.pid w,

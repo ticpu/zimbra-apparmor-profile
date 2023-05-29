@@ -1,28 +1,38 @@
 #include <tunables/global>
 
-/opt/zimbra/common/libexec/postfix-script flags=(complain) {
+/opt/zimbra/common/libexec/postfix-script {
   #include <abstractions/base>
   #include <abstractions/bash>
+  #include <abstractions/nameservice>
   #include <abstractions/postfix-common>
 
   capability dac_read_search,
 
   signal send set=hup peer=/opt/zimbra/common/libexec/master,
+  signal send set=term peer=/opt/zimbra/common/libexec/master,
 
   /bin/* ix,
   /bin/dash r,
+  /bin/egrep r,
   /lib/x86_64-linux-gnu/ld-*.so mr,
+  /opt/zimbra/common/conf/postfix-files.d/ r,
+  /opt/zimbra/common/libexec/ r,
   /opt/zimbra/common/libexec/master Px,
+  /opt/zimbra/common/libexec/openldap/ r,
+  /opt/zimbra/common/libexec/post-install r,
+  /opt/zimbra/common/libexec/postfix-script Px,
   /opt/zimbra/common/libexec/postfix-script r,
   /opt/zimbra/common/sbin/postconf Px,
   /opt/zimbra/common/sbin/postlog Px,
   /opt/zimbra/common/sbin/postsuper Ux,
+  /opt/zimbra/data/postfix/data/ r,
+  /opt/zimbra/data/postfix/spool/ r,
+  /opt/zimbra/data/postfix/spool/** r,
   /opt/zimbra/data/postfix/spool/pid/* r,
   /opt/zimbra/data/tmp/* w,
   /usr/bin/* ix,
   owner /opt/zimbra/common/conf/* r,
   owner /opt/zimbra/common/lib/lib*so* mr,
   owner /opt/zimbra/common/sbin/postsuper mr,
-  owner /opt/zimbra/data/postfix/spool/** r,
 
 }

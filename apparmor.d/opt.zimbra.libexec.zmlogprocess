@@ -1,0 +1,18 @@
+#include <tunables/global>
+
+/opt/zimbra/libexec/zmlogprocess {
+  #include <abstractions/base>
+  #include <abstractions/perl>
+  #include <abstractions/zimbra-bash>
+
+  /lib/x86_64-linux-gnu/ld-*.so mr,
+  /opt/zimbra/bin/zmprov Px,
+  /opt/zimbra/libexec/zmlogprocess r,
+  /var/log/zimbra.log r,
+  owner /opt/zimbra/log/zmlogprocess.pid r,
+  owner /opt/zimbra/log/zmlogprocess.pid w,
+  owner /opt/zimbra/log/zmlogprocess.state rw,
+  owner /opt/zimbra/logger/db/data/logger.sqlitedb rwk,
+  owner /tmp/* rwk,
+
+}

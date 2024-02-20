@@ -1,0 +1,41 @@
+# Last Modified: Wed Sep 20 20:23:50 2023
+#include <tunables/global>
+
+profile zimbra_stats {
+  #include <abstractions/base>
+  #include <abstractions/consoles>
+  #include <abstractions/nameservice>
+  #include <abstractions/zimbra-bash>
+  #include <abstractions/zimbra-ptrace>
+
+  signal receive set=term peer=/opt/zimbra/bin/zmstatctl,
+
+  ptrace read peer=/opt/zimbra/libexec/zmupdatedownload,
+
+  /etc/sysstat/* r,
+  /opt/zimbra/bin/mysql Ux,
+  /opt/zimbra/bin/zmhostname Px,
+  /opt/zimbra/bin/zmjava Px,
+  /opt/zimbra/bin/zmlocalconfig Px,
+  /opt/zimbra/bin/zmprov Px,
+  /opt/zimbra/common/bin/mysql Ux,
+  /opt/zimbra/common/lib/perl5/** mr,
+  /opt/zimbra/common/sbin/postqueue Ux,
+  /opt/zimbra/data/ldap/state/run/ldapi rw,
+  /opt/zimbra/libexec/* r,
+  /opt/zimbra/zmstat/** w,
+  /proc/*/statm r,
+  /proc/diskstats r,
+  /proc/loadavg r,
+  /proc/vmstat r,
+  /run/nslcd/socket rw,
+  owner /opt/zimbra/log/* r,
+  owner /opt/zimbra/zmstat/ w,
+  owner /opt/zimbra/zmstat/** rw,
+  owner /proc/*/io r,
+  owner /proc/*/mountinfo r,
+  owner /proc/*/mounts r,
+  owner /tmp/* r,
+  owner /tmp/* wk,
+
+}

@@ -1,0 +1,17 @@
+#include <tunables/global>
+
+/opt/zimbra/libexec/zmrrdfetch {
+  #include <abstractions/base>
+  #include <abstractions/nameservice>
+  #include <abstractions/perl>
+  #include <abstractions/zimbra-bash>
+
+  /lib/x86_64-linux-gnu/ld-*.so mr,
+  /opt/zimbra/common/lib/jvm/*/bin/java px -> zimbra_jvm,
+  /opt/zimbra/common/lib/lib*so* mr,
+  /opt/zimbra/libexec/zmrrdfetch r,
+  owner /opt/zimbra/log/zmlogswatch.out w,
+  owner /opt/zimbra/logger/db/data/logger.sqlitedb rwk,
+  owner /opt/zimbra/logger/db/data/rrds/* r,
+
+}

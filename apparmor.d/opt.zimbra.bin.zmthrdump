@@ -1,0 +1,14 @@
+#include <tunables/global>
+
+/opt/zimbra/bin/zmthrdump {
+  #include <abstractions/base>
+  #include <abstractions/nameservice>
+  #include <abstractions/perl>
+  #include <abstractions/zimbra-bash>
+
+  /lib/x86_64-linux-gnu/ld-*.so mr,
+  /opt/zimbra/common/lib/jvm/*/bin/jstack px -> zimbra_jstack,
+  /opt/zimbra/log/* r,
+  owner /opt/zimbra/log/* rw,
+
+}

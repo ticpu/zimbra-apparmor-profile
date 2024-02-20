@@ -1,0 +1,14 @@
+#include <tunables/global>
+
+/opt/zimbra/bin/zxsuite {
+  #include <abstractions/base>
+  #include <abstractions/bash>
+  #include <abstractions/consoles>
+  #include <abstractions/nameservice>
+  #include <abstractions/zimbra-bash>
+  #include <abstractions/zimbra-ptrace>
+
+  /lib/x86_64-linux-gnu/ld-*.so mr,
+  /opt/zimbra/lib/jars/ r,
+
+}

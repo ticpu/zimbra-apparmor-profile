@@ -1,0 +1,19 @@
+#include <tunables/global>
+
+/opt/zimbra/libexec/zmstatuslog {
+  #include <abstractions/base>
+  #include <abstractions/nameservice>
+  #include <abstractions/perl>
+  #include <abstractions/zimbra-bash>
+  #include <abstractions/zimbra-ptrace>
+
+  /lib/x86_64-linux-gnu/ld-*.so mr,
+  /opt/zimbra/bin/zmcontrol Px,
+  /opt/zimbra/bin/zxsuite Px,
+  /opt/zimbra/libexec/zmstatuslog r,
+  /usr/bin/perl ix,
+  owner /opt/zimbra/log/zmstatuslog.pid r,
+  owner /opt/zimbra/log/zmstatuslog.pid w,
+  owner /tmp/* rwk,
+
+}

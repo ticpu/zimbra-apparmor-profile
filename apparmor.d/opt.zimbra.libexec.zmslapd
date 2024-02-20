@@ -1,0 +1,28 @@
+#include <tunables/global>
+
+/opt/zimbra/libexec/zmslapd {
+  #include <abstractions/base>
+  #include <abstractions/bash>
+  #include <abstractions/consoles>
+  #include <abstractions/zimbra-bash>
+
+  capability net_bind_service,
+
+  /lib/x86_64-linux-gnu/ld-*.so mr,
+  /opt/zimbra/common/etc/** r,
+  /opt/zimbra/common/etc/openldap/* r,
+  /opt/zimbra/common/lib/lib*so* mr,
+  /opt/zimbra/common/lib/sasl2/ r,
+  /opt/zimbra/common/lib/sasl2/* mr,
+  /opt/zimbra/common/libexec/openldap/* mr,
+  /opt/zimbra/common/libexec/slapd px,
+  /opt/zimbra/libexec/zmslapd r,
+  owner /opt/zimbra/.ldaprc r,
+  owner /opt/zimbra/conf/ r,
+  owner /opt/zimbra/conf/* r,
+  owner /opt/zimbra/conf/ca/ r,
+  owner /opt/zimbra/conf/ca/* r,
+  owner /opt/zimbra/data/ldap/** r,
+  owner /opt/zimbra/data/ldap/** w,
+
+}

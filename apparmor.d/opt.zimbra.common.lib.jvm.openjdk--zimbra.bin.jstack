@@ -1,0 +1,20 @@
+#include <tunables/global>
+
+profile zimbra-jstack {
+  #include <abstractions/base>
+
+  /lib/x86_64-linux-gnu/ld-*.so mr,
+  /opt/zimbra/common/lib/jvm/** r,
+  /opt/zimbra/common/lib/jvm/*/lib/jvm.cfg r,
+  /opt/zimbra/common/lib/jvm/*/lib/server/*.so mr,
+  /opt/zimbra/common/lib/jvm/openjdk-*-zimbra/bin/jstack mr,
+  /opt/zimbra/common/lib/jvm/openjdk-*-zimbra/lib/lib*so* mr,
+  /proc/cgroups r,
+  /proc/stat r,
+  /sys/fs/cgroup/cpu,cpuacct/** r,
+  /sys/fs/cgroup/memory/* r,
+  owner /proc/*/cgroup r,
+  owner /proc/*/coredump_filter rw,
+  owner /proc/*/mountinfo r,
+
+}

@@ -10,6 +10,7 @@
 
   signal send set=hup peer=/opt/zimbra/common/libexec/master,
   signal send set=term peer=/opt/zimbra/common/libexec/master,
+  signal send set=term peer=unconfined,
 
   /bin/* ix,
   /bin/dash r,

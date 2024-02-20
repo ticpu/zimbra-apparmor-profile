@@ -6,7 +6,7 @@
 
   /lib/x86_64-linux-gnu/ld-*.so mr,
   /opt/zimbra/common/etc/openldap/ldap.conf r,
-  /opt/zimbra/common/etc/ssl/openssl.cnf r,
+  /opt/zimbra/common/etc/ssl/* r,
   /opt/zimbra/common/lib/**.so* mr,
   /opt/zimbra/common/lib/lib*so* mr,
   /opt/zimbra/common/lib/sasl2/ r,

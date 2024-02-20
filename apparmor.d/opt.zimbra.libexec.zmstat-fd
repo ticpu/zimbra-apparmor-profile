@@ -14,6 +14,9 @@
   capability fowner,
   capability fsetid,
 
+  signal send set=kill peer=unconfined,
+  signal send set=term peer=unconfined,
+
   /lib/x86_64-linux-gnu/ld-*.so mr,
   /opt/zimbra/bin/zmlocalconfig Px,
   /opt/zimbra/libexec/zmstat-fd r,

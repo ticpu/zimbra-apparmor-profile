@@ -12,6 +12,7 @@
   /opt/zimbra/bin/zmlocalconfig Px,
   /opt/zimbra/bin/zmsaslauthdctl Px,
   /opt/zimbra/libexec/configrewrite Px,
+  /opt/zimbra/bin/zmamavisdctl Px,
   owner /opt/zimbra/conf/* r,
 
 }

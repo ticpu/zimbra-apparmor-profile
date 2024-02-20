@@ -16,6 +16,7 @@
   /opt/zimbra/common/etc/openldap/* r,
   /opt/zimbra/common/etc/ssl/* r,
   /opt/zimbra/common/lib/lib*so* mr,
+  /opt/zimbra/common/lib/ossl-modules/* mr,
   /opt/zimbra/common/lib/sasl2/ r,
   /opt/zimbra/common/lib/sasl2/* r,
   /opt/zimbra/common/lib/sasl2/*.so.* mr,

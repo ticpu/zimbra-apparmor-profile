@@ -7,27 +7,54 @@
 
   signal receive set=term peer=/opt/zimbra/bin/zmamavisdctl,
 
-  /bin/gzip mrix,
+  /bin/gzip Px -> amavis_decompression,
+  /bin/pax Px -> amavis_decompression,
   /etc/magic r,
   /lib/x86_64-linux-gnu/ld-*.so mr,
+  /opt/zimbra/common/etc/ssl/* r,
   /opt/zimbra/common/etc/ssl/certs/ r,
-  /opt/zimbra/common/etc/ssl/openssl.cnf r,
   /opt/zimbra/common/lib/lib*so* mr,
+  /opt/zimbra/common/lib/ossl-modules/* mr,
   /opt/zimbra/common/lib/perl5/** mr,
   /opt/zimbra/common/sbin/amavisd Px,
   /opt/zimbra/common/sbin/amavisd r,
   /opt/zimbra/data/clamav/clamav.sock r,
   /run/nslcd/socket rw,
+  /usr/bin/uptime mrix,
   owner /opt/zimbra/conf/amavisd.conf r,
-  owner /opt/zimbra/data/amavisd/* w,
-  owner /opt/zimbra/data/amavisd/** r,
-  owner /opt/zimbra/data/amavisd/** wk,
-  owner /opt/zimbra/data/amavisd/tmp/** l,
-  owner /opt/zimbra/data/amavisd/tmp/** rw,
+  owner /opt/zimbra/data/amavisd/** rwk,
+  owner /opt/zimbra/data/amavisd/tmp/** rwl,
   owner /opt/zimbra/data/clamav/clamav.sock rw,
   owner /opt/zimbra/data/spamassassin/** r,
   owner /opt/zimbra/data/spamassassin/localrules/* r,
   owner /opt/zimbra/data/tmp/* rw,
+  owner /opt/zimbra/log/amavisd.pid r,
   owner /opt/zimbra/log/amavisd.pid w,
+
+}
+
+profile amavis_decompression {
+  #include <abstractions/base>
+  #include <abstractions/nameservice>
+  #include <abstractions/perl>
+  #include <abstractions/consoles>
+
+  signal receive set=term peer=/opt/zimbra/bin/zmamavisdctl,
+
+  /bin/gzip mrix,
+  /bin/pax mrix,
+  /etc/magic r,
+  /lib/x86_64-linux-gnu/ld-*.so mr,
+  /opt/zimbra/common/etc/ssl/* r,
+  /opt/zimbra/common/etc/ssl/certs/ r,
+  /run/nslcd/socket rw,
+  /usr/bin/uptime mrix,
+  owner /opt/zimbra/conf/amavisd.conf r,
+  owner /opt/zimbra/data/amavisd/* w,
+  owner /opt/zimbra/data/amavisd/** r,
+  owner /opt/zimbra/data/amavisd/** wk,
+  owner /opt/zimbra/data/amavisd/tmp/** rwl,
+  owner /opt/zimbra/data/clamav/clamav.sock rw,
+  owner /opt/zimbra/data/tmp/* rw,
 
 }

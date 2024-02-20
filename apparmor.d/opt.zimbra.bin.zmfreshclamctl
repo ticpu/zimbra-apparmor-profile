@@ -9,6 +9,7 @@
   #include <abstractions/zimbra-ptrace>
 
   signal send set=kill peer=/opt/zimbra/common/bin/freshclam,
+  signal send set=kill peer=unconfined,
 
   /lib/x86_64-linux-gnu/ld-*.so mr,
   /opt/zimbra/bin/zmfreshclamctl Px,

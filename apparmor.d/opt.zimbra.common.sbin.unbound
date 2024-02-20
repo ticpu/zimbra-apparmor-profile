@@ -16,11 +16,12 @@
 
   /lib/x86_64-linux-gnu/ld-*.so mr,
   /opt/zimbra/common/lib/lib*so* mr,
+  /opt/zimbra/common/lib/ossl-modules/* mr,
   /opt/zimbra/common/sbin/unbound mr,
   /opt/zimbra/conf/unbound.conf r,
   /opt/zimbra/data/tmp/zmcontrol.out.* w,
   /opt/zimbra/log/unbound.pid rw,
-  owner /opt/zimbra/common/etc/ssl/openssl.cnf r,
+  owner /opt/zimbra/common/etc/ssl/* r,
   owner /opt/zimbra/conf/root.key r,
 
 }

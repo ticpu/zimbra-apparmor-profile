@@ -11,6 +11,7 @@
   /opt/zimbra/common/bin/freshclam: mr,
   /opt/zimbra/common/etc/ssl/* r,
   /opt/zimbra/common/lib/lib*so* mr,
+  /opt/zimbra/common/lib/ossl-modules/* mr,
   /opt/zimbra/common/share/curl/ca-bundle.crt r,
   owner /opt/zimbra/conf/clamd.conf r,
   owner /opt/zimbra/conf/freshclam.conf r,

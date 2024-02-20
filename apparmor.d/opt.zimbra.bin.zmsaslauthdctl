@@ -9,6 +9,7 @@
   #include <abstractions/zimbra-ptrace>
 
   signal send set=term peer=/opt/zimbra/common/sbin/saslauthd,
+  signal send set=term peer=unconfined,
 
   /lib/x86_64-linux-gnu/ld-*.so mr,
   /opt/zimbra/bin/zmsaslauthdctl Px,

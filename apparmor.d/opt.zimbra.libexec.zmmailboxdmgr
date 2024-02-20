@@ -9,6 +9,7 @@
   capability kill,
 
   signal send set=kill peer=zimbra_jvm,
+  signal send set=term peer=unconfined,
   signal send set=term peer=zimbra_jvm,
 
   /lib/x86_64-linux-gnu/ld-*.so mr,

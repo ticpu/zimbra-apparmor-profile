@@ -13,8 +13,8 @@
   /opt/zimbra/bin/zmlocalconfig Px,
   /opt/zimbra/common/lib/perl5/** r,
   /opt/zimbra/libexec/zmstat-* Px -> zimbra_stats,
+  /opt/zimbra/zmstat/* w,
   owner /opt/zimbra/conf/* r,
-  owner /opt/zimbra/zmstat/* w,
   owner /opt/zimbra/zmstat/pid/ r,
   owner /opt/zimbra/zmstat/pid/* rw,
 

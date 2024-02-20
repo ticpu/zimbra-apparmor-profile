@@ -10,6 +10,7 @@
   #include <abstractions/zimbra-ptrace>
 
   /bin/df Ux,
+  /etc/dpkg/dpkg.cfg.d/ r,
   /lib/x86_64-linux-gnu/ld-*.so mr,
   /opt/zimbra/ rw,
   /opt/zimbra/bin/* Ux,

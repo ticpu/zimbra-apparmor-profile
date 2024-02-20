@@ -9,7 +9,9 @@
 
   signal send set=kill peer=/opt/zimbra/common/bin/swatchdog,
   signal send set=kill peer=/opt/zimbra/libexec/zmlogger,
+  signal send set=kill peer=unconfined,
   signal send set=term peer=/opt/zimbra/libexec/zmlogger,
+  signal send set=term peer=unconfined,
 
   /lib/x86_64-linux-gnu/ld-*.so mr,
   /opt/zimbra/bin/zmhostname Px,

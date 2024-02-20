@@ -7,7 +7,9 @@
   signal receive set=term peer=/opt/zimbra/bin/zmclamdctl,
 
   /lib/x86_64-linux-gnu/ld-*.so mr,
+  /opt/zimbra/common/etc/ssl/* r,
   /opt/zimbra/common/lib/lib*so* mr,
+  /opt/zimbra/common/lib/ossl-modules/* mr,
   /opt/zimbra/common/sbin/clamd mr,
   /sys/fs/cgroup/**/cpu.cfs_quota_us r,
   owner /opt/zimbra/conf/clamd.conf r,
